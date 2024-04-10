@@ -5,16 +5,17 @@ import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Layout from "./pages/Layout";
 import NoPage from "./pages/NoPage";
+import Page_homem from './pages/Page_homem';
+import Page_mulher from './pages/Page_mulher';
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
+      <Routes>  
+        <Route>
           <Route index element={<Home />} />
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} />
+          <Route path="/Page_homem" component={Page_homem} />
+          <Route path="/Page_mulher" component={Page_mulher} />
         </Route>
       </Routes>
     </BrowserRouter>

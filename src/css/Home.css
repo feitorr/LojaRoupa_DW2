@@ -1,0 +1,84 @@
+.logo{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.container{
+    display: flex;
+     gap: 50px;
+    text-align: center;
+     color: white;
+     justify-content: center;
+}
+
+
+.mulher{
+    width:400px;
+    height:700px;
+    background-color: #A4A4A4;
+    transition: all 0.3s;
+
+}
+
+.imagem_mulher{
+    width:350px;
+    margin-top: 20px;
+    height: 550px;
+}
+
+.homem{
+    width:400px;
+    height:700px;
+    background-color: black;
+    transition: all 0.3s;
+
+}
+.homem:hover{
+    transition: all 0.3s;
+    transform: scale(1.08);
+}
+.mulher:hover{
+    transition: all 0.3s;
+    transform: scale(1.08);
+}
+
+.imagem_homem{
+    width:350px;
+    margin-top: 20px;
+    height: 550px;
+}
+
+.tipo{
+    font-size: 50px;
+    text-transform: uppercase;
+    margin-top: 5px;
+    color: white;
+}
+
+.link{
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navegar{
+    position: relative;
+    top: -40px;
+    color: white;
+}
+
+footer{
+    background-color: #D9D9D9;
+    height: 30px;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+footer p{
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    margin-top: 5px;
+}
