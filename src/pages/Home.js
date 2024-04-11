@@ -18,7 +18,7 @@ const Home = () => {
     </div>
     </Link>
     <div className="homem">
-  <Link className="link" to="/Page_homem">
+  <Link className="link" to="homem">
     <img className="imagem_homem" src={imagem_homem} alt="Homem" />
     <h1 className="tipo">Homem</h1>
   </Link>
