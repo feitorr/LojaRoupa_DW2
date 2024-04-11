@@ -1,0 +1,42 @@
+.container_admin{
+    width: 300px;
+    background-color: black;
+    height:100dvh;
+    text-align: center;
+}
+
+.container_admin img{
+    width: 250px;
+    height: 60px;
+    margin-top: 30px;
+    
+}
+.circulo{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.circulo img{
+    width:90px;
+    height: 90px;
+}
+.btn{
+    margin-top: 30px;
+}
+
+.botoes button{
+    width: 236px;
+    height: 55px;
+    font-size: 24px;
+    background-color: white;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+}
+.botoes button:hover{
+    background-color: rgba(255, 255, 255, 0.795);
+    transition: 0.6;
+}

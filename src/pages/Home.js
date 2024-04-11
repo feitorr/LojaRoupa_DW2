@@ -11,18 +11,16 @@ const Home = () => {
       <img src={imagem} alt="Rizzland"/>
     </div>
       <div className="container">
-      <Link className="link" to="/Page_mulher">
+      <Link className="link" to="/mulher">
     <div className="mulher">
       <img className="imagem_mulher" src={imagem_mulher}/>
       <h1 className="tipo">Mulher</h1>
-      <p className="navegar">Ir navegar</p>
     </div>
     </Link>
     <div className="homem">
   <Link className="link" to="/Page_homem">
     <img className="imagem_homem" src={imagem_homem} alt="Homem" />
     <h1 className="tipo">Homem</h1>
-    <p className="navegar">Ir navegar</p>
   </Link>
 </div>
 
