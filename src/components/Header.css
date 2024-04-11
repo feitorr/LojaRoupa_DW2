@@ -1,0 +1,56 @@
+.header {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding: 0 20px;
+  background-color: #fff;
+  color: #333;
+  margin-top: 30px;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: bold;
+  flex-grow: 1;
+  text-align: center; 
+}
+
+.header-button {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.header-rizz {
+  color: #000;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.header-land {
+  color: #979595;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.header-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.header-button {
+  margin: 0 8px;
+}
+
+.header-button svg {
+  font-size: 45px;
+}
+
+.headerDivisiveLine {
+  width: 100%;
+  height: 5px;
+  background-color: #000;
+  margin-top: 15px;
+}
