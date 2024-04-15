@@ -1,0 +1,184 @@
+.tamanho {
+  background-color: #ffffff;
+  margin: 0;
+  width: 20%;
+  border: 1px solid #d7d7d7;
+  padding: 10px 0px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.tamanho:hover {
+  transition: all 0.1s;
+  background-color: #000000;
+  padding: 0px;
+  color: #ffffff;
+}
+
+.selected {
+  background-color: #000;
+  color: white;
+  box-shadow: 0 0 0 2px #535353;
+  border: none;
+}
+.selectedCor {
+  box-shadow: 0 0 0 6px #979595 !important;
+}
+.tamanho h2 {
+  margin: 0;
+}
+#preco {
+  font-weight: 500;
+  font-size: 20px;
+  text-align: left;
+  margin-top: 0;
+}
+#saldo {
+  text-decoration: line-through;
+  font-weight: 500;
+  font-size: 13px;
+  text-align: left;
+  margin: 0;
+}
+.conjunto {
+  gap: 3%;
+  width: 100%;
+  justify-content: space-between;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+.product-info {
+  width: fit-content;
+  min-width: 400px;
+}
+.product{
+  height: 100%;
+  gap: 100px;
+  margin: 0 auto !important;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+.productimg{
+  width:fit-content;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.productimg img{
+  width: 100%;
+  min-height: 500px;
+  max-height: 650px;
+  object-fit: contain;
+}
+.product-info p {
+  text-align: center;
+  font-size: 13px;
+}
+.product-info h1 {
+  font-size: 32px;
+}
+.cores {
+  width: 70%;
+  margin: 30px auto;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.cor {
+  list-style-type: none;
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
+.preto {
+  background-color: #000;
+}
+.preto:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0 5px #c2c2c2;
+}
+.vermelho {
+  background-color: #ff0000;
+  cursor: pointer;
+}
+.vermelho:hover {
+  background-color: #ff0000;
+  box-shadow: 0 0 0 5px #c2c2c2;
+}
+.branco {
+  cursor: pointer;
+  background-color: #ffffff;
+}
+.branco:hover {
+  background-color: #ffffff;
+  box-shadow: 0 0 0 5px #c2c2c2;
+}
+.azul {
+  cursor: pointer;
+  background-color: #0000ff;
+}
+.azul:hover {
+  background-color: #0000ff;
+  box-shadow: 0 0 0 5px #c2c2c2;
+}
+.amarelo {
+  cursor: pointer;
+  background-color: #ffff00;
+}
+.amarelo:hover {
+  background-color: #ffff00;
+  box-shadow: 0 0 0 5px #c2c2c2;
+}
+.button {
+  color: #ffffff;
+  background-color: #000;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.button:hover {
+  transition: all 0.2s;
+  color: #000000;
+  background-color: #dadada;
+}
+.button h3 {
+  padding: 20px;
+  font-size: 20px;
+}
+.entregas {
+  display: flex;
+  flex-direction: row;
+  height: 73px;
+  border: 1px solid #d7d7d7;
+}
+.entregas .texto {
+  margin: auto 0;
+  justify-content: space-between;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  margin-right: 5%;
+}
+.entregas p {
+  font-size: 16px;
+  font-weight: 500;
+}
+.entregas h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #089805;
+}
+.entregas img {
+  margin: auto;
+  width: 32px;
+  height: 32px;
+}
+#ref {
+  font-size: 14px;
+  text-align: right;
+}

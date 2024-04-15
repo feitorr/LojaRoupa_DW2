@@ -1,4 +1,4 @@
-//import './App.css';
+// Importando os componentes necessários
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
@@ -8,6 +8,7 @@ import Layout from "./pages/Layout";
 import NoPage from "./pages/NoPage";
 import Page_homem from './pages/Page_homem';
 import Page_mulher from './pages/Page_mulher';
+import Product from "./pages/productinfo";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="admin" element={<Admin />} />
           <Route path="*" element={<NoPage />} />
+          <Route path="product" element={<Product />} />
         </Route>
       </Routes>
     </BrowserRouter>

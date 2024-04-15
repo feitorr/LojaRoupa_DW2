@@ -2,7 +2,7 @@ import React from 'react';
 import { IconButton } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
-import '../css/Header.css';
+import './Header.css';
 
 const Header = () => {
   return (<>

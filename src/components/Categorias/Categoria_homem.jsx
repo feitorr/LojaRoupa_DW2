@@ -1,10 +1,11 @@
 
-import chapeu from "../img/chapeu_homem.png"
-import jeans from "../img/calças_homem.png";
-import casao from "../img/casaco_homem.png";
-import sweat from "../img/sweat_homem.png";
-import tshirt from "../img/tshirt_homem.png";
-import '../css/Categoria_mulher.css';
+import chapeu from "./img_categorias/chapeu_homem.png"
+import jeans from "./img_categorias/calças_homem.png";
+import casao from "./img_categorias/casaco_homem.png";
+import sweat from "./img_categorias/sweat_homem.png";
+import tshirt from "./img_categorias/tshirt_homem.png";
+import '../Categorias/Categoria_mulher.css';
+
 const Categoria_homem = () => {
     return (<>
     <div className="titulo">
