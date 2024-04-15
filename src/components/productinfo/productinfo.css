@@ -21,7 +21,7 @@
   border: none;
 }
 .selectedCor {
-  box-shadow: 0 0 0 6px #535353 !important;
+  box-shadow: 0 0 0 6px #979595 !important;
 }
 .tamanho h2 {
   margin: 0;
@@ -52,8 +52,9 @@
   min-width: 400px;
 }
 .product{
+  height: 100%;
   gap: 100px;
-  margin: 0 auto;
+  margin: 0 auto !important;
   width: 70%;
   display: flex;
   justify-content: space-between;
@@ -97,7 +98,7 @@
 }
 .preto:hover {
   cursor: pointer;
-  box-shadow: 0 0 0 5px #535353;
+  box-shadow: 0 0 0 5px #c2c2c2;
 }
 .vermelho {
   background-color: #ff0000;
@@ -105,7 +106,7 @@
 }
 .vermelho:hover {
   background-color: #ff0000;
-  box-shadow: 0 0 0 5px #535353;
+  box-shadow: 0 0 0 5px #c2c2c2;
 }
 .branco {
   cursor: pointer;
@@ -113,7 +114,7 @@
 }
 .branco:hover {
   background-color: #ffffff;
-  box-shadow: 0 0 0 5px #535353;
+  box-shadow: 0 0 0 5px #c2c2c2;
 }
 .azul {
   cursor: pointer;
@@ -121,7 +122,7 @@
 }
 .azul:hover {
   background-color: #0000ff;
-  box-shadow: 0 0 0 5px #535353;
+  box-shadow: 0 0 0 5px #c2c2c2;
 }
 .amarelo {
   cursor: pointer;
@@ -129,7 +130,7 @@
 }
 .amarelo:hover {
   background-color: #ffff00;
-  box-shadow: 0 0 0 5px #535353;
+  box-shadow: 0 0 0 5px #c2c2c2;
 }
 .button {
   color: #ffffff;
