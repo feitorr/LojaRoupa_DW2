@@ -2,6 +2,7 @@ import React, { cloneElement } from "react";
 import imagem from "../img/logo.png";
 import imagem_mulher from "../img/mulher.png";
 import imagem_homem from "../img/homem.png";
+import Footer from "../components/Footer";
 import '../css/Home.css';
 import { Link } from 'react-router-dom';
 
@@ -23,11 +24,8 @@ const Home = () => {
     <h1 className="tipo">Homem</h1>
   </Link>
 </div>
-
       </div>
-      <footer>
-        <p>@copy right RIZZLAND SFJG</p>
-      </footer>
+      <Footer />
     </>
   );
 };

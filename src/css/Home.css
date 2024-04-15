@@ -60,19 +60,3 @@
     transition: all 0.3s;
 }
 
-footer{
-    background-color: #D9D9D9;
-    height: 30px;
-    text-align: center;
-    margin: 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-footer p{
-    text-align: center;
-    margin: 0;
-    position: absolute;
-    width: 100%;
-    margin-top: 5px;
-}
