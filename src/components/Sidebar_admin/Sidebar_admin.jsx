@@ -1,6 +1,6 @@
-import imagem from "../img/logo2.png";
-import admin_logo from "../img/admin_logo.png";
-import '../css/Sidebar_admin.css';
+import imagem from "../Sidebar_admin/img/logo2.png";
+import admin_logo from "../Sidebar_admin/img/admin_logo.png";
+import '../Sidebar_admin/Sidebar_admin.css';
 const Sidebar_admin = () => {
     return (<>
     <div className="container_admin">

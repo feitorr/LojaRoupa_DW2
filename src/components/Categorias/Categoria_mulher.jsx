@@ -1,12 +1,12 @@
-import sais from "../img/saias_mulher.png"
-import tops from "../img/tops_mulher.png"
-import vestido from "../img/vestidos_mulher.png"
-import chapeu from "../img/chapeu_mulher.png"
-import jeans from "../img/jeans_mulher.png";
-import casao_mulher from "../img/casaco_mulher.png";
-import sweat_mulher from "../img/sweat_mulher.png";
-import tshirt_mulher from "../img/t_mulher.png";
-import '../css/Categoria_mulher.css';
+import sais from "../Categorias/img_categorias/saias_mulher.png";
+import tops from "../Categorias/img_categorias/tops_mulher.png";
+import vestido from "../Categorias/img_categorias/vestidos_mulher.png";
+import chapeu from "../Categorias/img_categorias/chapeu_mulher.png";
+import jeans from "../Categorias/img_categorias/jeans_mulher.png";
+import casao_mulher from"../Categorias/img_categorias/casaco_mulher.png";
+import sweat_mulher from "../Categorias/img_categorias/sweat_mulher.png";
+import tshirt_mulher from "../Categorias/img_categorias/t_mulher.png";
+import '../Categorias/Categoria.css';
 const Categoria_mulher = () => {
     return (<>
     <div className="titulo">
