@@ -8,6 +8,7 @@ import NoPage from "./pages/NoPage";
 import Page_homem from './pages/Page_homem';
 import Page_mulher from './pages/Page_mulher';
 import Product from "./pages/productinfo";
+import Edit_profile from "./components/Edit_profile/Edit_profile";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="admin" element={<Admin />} />
           <Route path="*" element={<NoPage />} />
           <Route path="product" element={<Product />} />
+          <Route path="edit" element={<Edit_profile />} />
         </Route>
       </Routes>
     </BrowserRouter>
