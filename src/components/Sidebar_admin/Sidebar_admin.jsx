@@ -1,6 +1,7 @@
 import imagem from "./img/logo2.png";
 import admin_logo from "./img/admin_logo.png";
 import './Sidebar_admin.css';
+import { Link } from "react-router-dom";
 const Sidebar_admin = () => {
     return (<>
     <div className="container_admin">
@@ -10,7 +11,9 @@ const Sidebar_admin = () => {
     </div>
     <div className="btn">
     <div className="botoes">
+    <Link to="/edit">
         <button>Perfil</button>
+        </Link>
     </div>
     <div className="botoes">
         <button>Stock</button>

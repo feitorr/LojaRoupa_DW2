@@ -1,0 +1,29 @@
+.edit-profile-container {
+    display: flex; 
+}
+
+.edit {
+    width: 1600px;
+    height: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+.Titulo{
+    font-size: 25px;
+}
+.Titulo img{
+    width: 150px;
+    height: 150px;
+    border: solid;
+    border-color: black;
+    border-radius: 50%;
+}
+.editar button{
+    background-color: #929292;
+    border: none;
+    width: 120px;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
