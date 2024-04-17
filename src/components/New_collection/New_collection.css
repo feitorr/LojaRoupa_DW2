@@ -1,0 +1,51 @@
+.container_nc{
+    margin-top: 50px;
+}
+
+.container_nc h1{
+    text-align: center;
+    font-size: 30px;
+}
+
+.collection{
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 322px;
+    height: 350px;
+    margin: 0 auto;
+   text-align: center;
+   background-color: #F4F4F4;
+   cursor: pointer;
+}
+.card:hover{
+    filter: brightness(0.6);
+    transition: 0.2s;
+}
+
+.card img{
+    width: 300px;
+    height: 350px;
+    
+}
+.card .brand{
+    text-align: left;
+    font-size: 20px;
+    margin-top: -10px;
+}
+.card .category{
+    text-align: left;
+    font-size: 15px;
+    margin-top: 15px;
+    color: #929292;
+}
+.card .price{
+    text-align: left;
+    font-size: 15px;
+    margin-top: -15px;
+    color: #929292;
+}
