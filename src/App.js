@@ -10,6 +10,7 @@ import Page_mulher from './pages/Page_mulher';
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Product from "./pages/productinfo";
+import Pagina_roupa from "./pages/Pagina_roupa";
 import Edit_profile from "./components/Edit_profile/Edit_profile";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="admin" element={<Admin />} />
           <Route path="*" element={<NoPage />} />
           <Route path="product" element={<Product />} />
+          <Route path="roupa" element={<Pagina_roupa />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="login" element={<Login />} />
           <Route path="edit" element={<Edit_profile />} />
