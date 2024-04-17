@@ -7,6 +7,7 @@ import Layout from "./pages/Layout";
 import NoPage from "./pages/NoPage";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import Product from "./pages/productinfo";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<SignUp />} />
             <Route path="*" element={<NoPage />} />
+            <Route path="product" element={<Product />} />
           </Route>
         </Routes>
       </BrowserRouter>
