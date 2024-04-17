@@ -3,46 +3,34 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
-import Layout from "./pages/Layout";
+import Admin from "./pages/Admin";
 import NoPage from "./pages/NoPage";
+import Page_homem from './pages/Page_homem';
+import Page_mulher from './pages/Page_mulher';
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Product from "./pages/productinfo";
+import Edit_profile from "./components/Edit_profile/Edit_profile";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="blogs" element={<Blogs />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="login" element={<Login />} />
-            <Route path="signup" element={<SignUp />} />
-            <Route path="*" element={<NoPage />} />
-            <Route path="product" element={<Product />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-      {/* <LoginPage /> */}
-      {/* <div className="App">
-      <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-      Edit <code>src/App.js</code> and save to reload.
-      </p>
-      <a
-      className="App-link"
-      href="https://reactjs.org"
-      target="_blank"
-      rel="noopener noreferrer"
-      >
-      Learn React
-      </a>
-      </header>
-    </div> */}
-    </>
+    <BrowserRouter>
+      <Routes>  
+      <Route >
+          <Route index element={<Home />} />
+          <Route path="homem" element={<Page_homem />} /> 
+         <Route path="mulher" element={<Page_mulher />} /> 
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="admin" element={<Admin />} />
+          <Route path="*" element={<NoPage />} />
+          <Route path="product" element={<Product />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="login" element={<Login />} />
+          <Route path="edit" element={<Edit_profile />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
