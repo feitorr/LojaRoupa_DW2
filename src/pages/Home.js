@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Footer from "../components/Footer/Footer";
-import "./Home.css";
-import imagem_homem from "../img/homem.png";
+import React, { cloneElement } from "react";
 import imagem from "../img/logo.png";
 import imagem_mulher from "../img/mulher.png";
+import imagem_homem from "../img/homem.png";
+import Footer from "../components/Footer/Footer";
+import "../pages/Home.css";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
