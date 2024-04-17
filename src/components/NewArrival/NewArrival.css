@@ -6,32 +6,32 @@
     width: 100%;
     gap: 20px;
 }
-.preco{
+.cardd .preco{
     margin: 0;
 }
-.category{
+.cardd .category{
     color: #929292;
     font-weight: 700;
     margin: 0;
 }
-.card h2{
+.cardd h2{
     margin: 0;
 }
 
-.card{
+.cardd{
     padding: 10px;
     border-radius: 10px;
     width: fit-content;
     background-color: #ffffff;
 }
-.card:hover{
+.cardd:hover{
     cursor: pointer;
     background-color: #e2e2e2;
 }
-.cardimage img{
+.carddimage img{
     width: 200px;
 }
-.cardimage{
+.carddimage{
    text-align: center;
 }
 .allnew{
@@ -66,7 +66,7 @@
         justify-content: center;
         width: 95%;
     }
-    .card{
+    .cardd{
         width: 100%;
     }
   }

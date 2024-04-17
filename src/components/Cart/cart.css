@@ -12,11 +12,7 @@
     transition: transform 0.3s ease;
     transform: translateX(100%);
 }
-
-
-
-
-.corbag{
+.cart .corbag{
     justify-content: space-around;
     display: flex;
     flex-direction: row;
@@ -24,17 +20,17 @@
 .cart.show {
     transform: translateX(0%);
 }
-.content{
+.cart .content{
     text-align: center;
 }
 
-.price{
+.cart .price{
     font-weight: 700;
     margin: 0;
 }
 
 
-.bagtamanho{
+.cart .bagtamanho{
     color: #a0a0a0;
     margin: 0;
     font-weight: 700;
@@ -45,14 +41,14 @@
     right: 10px;
     cursor: pointer;
 }
-.cartbags{
+.cart .cartbags{
     margin-top: 20px;
     border: 2px solid #C8C8C8 !important;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-.cartbags img{
+.cart .cartbags img{
     width: 150px;
 }
 
