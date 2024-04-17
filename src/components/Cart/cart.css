@@ -1,0 +1,58 @@
+.cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 400px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    transform: translateX(100%);
+}
+
+
+
+
+.corbag{
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+}
+.cart.show {
+    transform: translateX(0%);
+}
+.content{
+    text-align: center;
+}
+
+.price{
+    font-weight: 700;
+    margin: 0;
+}
+
+
+.bagtamanho{
+    color: #a0a0a0;
+    margin: 0;
+    font-weight: 700;
+}
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+.cartbags{
+    margin-top: 20px;
+    border: 2px solid #C8C8C8 !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.cartbags img{
+    width: 150px;
+}
+
