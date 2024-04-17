@@ -8,6 +8,7 @@ import NoPage from "./pages/NoPage";
 import Page_homem from './pages/Page_homem';
 import Page_mulher from './pages/Page_mulher';
 import Product from "./pages/productinfo";
+import Pagina_roupa from "./pages/Pagina_roupa";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="admin" element={<Admin />} />
           <Route path="*" element={<NoPage />} />
           <Route path="product" element={<Product />} />
+          <Route path="roupa" element={<Pagina_roupa />} />
         </Route>
       </Routes>
     </BrowserRouter>

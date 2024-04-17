@@ -1,0 +1,46 @@
+#containerFiltragem {
+    background-color: rgb(255, 255, 255);
+    width: 400px;
+    padding-left: 20px;
+}
+
+
+.filterBox div {
+    margin-top: 15px;
+    height: 60px;
+    width: 400px;
+}
+
+.filterBox button {
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+    border: 4px;
+    background-color: white;
+    border: 20px;
+    border-color: red;
+    font-weight: bold;
+    border: 1px solid grey;
+    cursor: pointer;
+}
+
+.filterButtons:hover {
+    background-color: black;
+    color: white;
+}
+
+#botaoDeCima {
+    margin-top: 60px;
+}
+
+#botaoPesquisar {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    border: none;
+}
+
+#botaoPesquisar:hover {
+    background-color: grey;
+    color: white;
+}

@@ -3,6 +3,7 @@ import jeans from "../Categorias/img_categorias/calças_homem.png";
 import casao from "../Categorias/img_categorias/casaco_homem.png";
 import sweat from "../Categorias/img_categorias/sweat_homem.png";
 import tshirt from "../Categorias/img_categorias/tshirt_homem.png";
+import { Link } from "react-router-dom";
 import '../Categorias/Categoria.css';
 
 const Categoria_homem = () => {
@@ -13,8 +14,10 @@ const Categoria_homem = () => {
             </div>
             <div className='container_cm'>
                 <div className="categoria">
+                    <Link to="/roupa">
                     <img src={tshirt} alt="T-SHIRTS" />
                     <p>T-SHIRTS</p>
+                    </Link>
                 </div>
                 <div className="categoria">
                     <img src={sweat} alt="SWEATS" />

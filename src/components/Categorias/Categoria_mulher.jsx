@@ -6,6 +6,7 @@ import jeans from  "./img_categorias/jeans_mulher.png";
 import casao_mulher from "./img_categorias/casaco_mulher.png";
 import sweat_mulher from "./img_categorias/sweat_mulher.png";
 import tshirt_mulher from "./img_categorias/t_mulher.png";
+import { Link } from "react-router-dom";
 import './Categoria_mulher.css';
 
 const Categoria_mulher = () => {
@@ -15,8 +16,10 @@ const Categoria_mulher = () => {
     </div>
     <div className='container_cm'>
         <div className="categoria">
+        <Link to="/roupa">
         <img src={tshirt_mulher}/>
         <p>T-SHIRTS</p>
+        </Link>
         </div>
         <div className="categoria">
         <img src={sweat_mulher}/>
