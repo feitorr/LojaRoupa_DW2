@@ -1,5 +1,5 @@
-// Importando os componentes necessários
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+//import './App.css';
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
@@ -7,6 +7,8 @@ import Admin from "./pages/Admin";
 import NoPage from "./pages/NoPage";
 import Page_homem from './pages/Page_homem';
 import Page_mulher from './pages/Page_mulher';
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 import Product from "./pages/productinfo";
 import Edit_profile from "./components/Edit_profile/Edit_profile";
 
@@ -23,6 +25,8 @@ function App() {
           <Route path="admin" element={<Admin />} />
           <Route path="*" element={<NoPage />} />
           <Route path="product" element={<Product />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="login" element={<Login />} />
           <Route path="edit" element={<Edit_profile />} />
         </Route>
       </Routes>
