@@ -1,9 +1,10 @@
+import Header from "../components/Header/Header";
 import LoginPage from "../components/LoginPage/LoginPage";
 
 const Login = () => {
   return (
     <>
-      <h1>Login</h1>
+      <Header />
       <LoginPage />
     </>
   );
