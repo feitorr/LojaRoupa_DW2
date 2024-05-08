@@ -9,7 +9,7 @@ import "../Cart/cart.css";
 const Header = () => {
   function carrinho() {
     var cart = document.getElementById("popupCart");
-    cart.classList.toggle("show");
+    cart.classList.toggle("showw");
 
     const sessionStorageData = JSON.parse(sessionStorage.getItem("itemsNaBag"));
 

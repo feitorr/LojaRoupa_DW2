@@ -5,7 +5,7 @@ const Cart = () => {
 
     function closeCart() {
         var cart = document.getElementById('popupCart');
-        cart.classList.remove('show');
+        cart.classList.remove('showw');
     }
     
     return (

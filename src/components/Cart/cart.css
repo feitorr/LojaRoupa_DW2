@@ -17,7 +17,7 @@
     display: flex;
     flex-direction: row;
 }
-.cart.show {
+.cart.showw {
     transform: translateX(0%);
 }
 .cart .content{
