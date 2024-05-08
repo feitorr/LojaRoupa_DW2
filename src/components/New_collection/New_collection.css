@@ -8,19 +8,15 @@
 }
 
 .collection{
-    display: flex;
-    width: 80%;
     margin: 0 auto;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    width: 85%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(340px,1fr));
 }
-
 .card{
     width: 322px;
-    height: 350px;
-    margin: 0 auto;
+    margin: 0px auto 30px auto;
    text-align: center;
-   background-color: #F4F4F4;
    cursor: pointer;
 }
 .card:hover{
@@ -53,4 +49,7 @@
 .Link{
     text-decoration: none;
     color: black;
+}
+.new_collection_img{
+    background-color: #F4F4F4; 
 }

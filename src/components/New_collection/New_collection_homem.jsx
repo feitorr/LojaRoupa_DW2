@@ -18,7 +18,6 @@ const New_collection_homem = () => {
                     .select("*")
                     .eq('genero', 'Homem')
                     .eq('estado', '1')
-                    .limit(4); 
                 if (error) {
                     throw error;
                 }
@@ -38,7 +37,9 @@ const New_collection_homem = () => {
                     {roupas.map((roupa, index) => (
                         <Link className="Link"to={`/product?id=${roupa.id}`}>
                         <div className="card" key={index}>
+                            <div className="new_collection_img">
                             <img src={roupa.imagem} alt="Roupa" />
+                            </div>
                             <p className="category">{roupa.categoria} / {roupa.marca}</p>
                             <h2 className="brand">{roupa.titulo}</h2>
                             <p className="price">{roupa.preco}€</p>
