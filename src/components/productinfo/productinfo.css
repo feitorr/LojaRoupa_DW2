@@ -1,4 +1,5 @@
 .tamanho {
+  color: #808080;
   background-color: #ffffff;
   margin: 0;
   width: 20%;
@@ -7,16 +8,9 @@
   cursor: pointer;
   transition: all 0.3s;
 }
-.tamanho:hover {
-  transition: all 0.1s;
-  background-color: #000000;
-  padding: 0px;
-  color: #ffffff;
-}
-
 .selected {
   background-color: #000;
-  color: white;
+  color: white !important;
   box-shadow: 0 0 0 2px #535353;
   border: none;
 }
@@ -25,6 +19,13 @@
 }
 .tamanho h2 {
   margin: 0;
+}
+.show{
+  color: #000;
+}
+.show:hover{
+  color: white;
+  background-color: #000;
 }
 #preco {
   font-weight: 500;
@@ -88,51 +89,43 @@
   align-items: center;
 }
 .cor {
+  filter: opacity(0.25);
   list-style-type: none;
   width: 43px;
   height: 43px;
   border-radius: 50%;
   border: 1px solid #000;
 }
+.colorShow{
+  filter: opacity(1) !important;
+}
+.colorShow:hover{
+  box-shadow: 0 0 0 5px #c2c2c2;
+}
 .preto {
   background-color: #000;
 }
-.preto:hover {
-  cursor: pointer;
-  box-shadow: 0 0 0 5px #c2c2c2;
-}
+
 .vermelho {
   background-color: #ff0000;
   cursor: pointer;
 }
-.vermelho:hover {
-  background-color: #ff0000;
-  box-shadow: 0 0 0 5px #c2c2c2;
-}
+
 .branco {
   cursor: pointer;
   background-color: #ffffff;
 }
-.branco:hover {
-  background-color: #ffffff;
-  box-shadow: 0 0 0 5px #c2c2c2;
-}
+
 .azul {
   cursor: pointer;
   background-color: #0000ff;
 }
-.azul:hover {
-  background-color: #0000ff;
-  box-shadow: 0 0 0 5px #c2c2c2;
-}
+
 .amarelo {
   cursor: pointer;
   background-color: #ffff00;
 }
-.amarelo:hover {
-  background-color: #ffff00;
-  box-shadow: 0 0 0 5px #c2c2c2;
-}
+
 .button {
   color: #ffffff;
   background-color: #000;
