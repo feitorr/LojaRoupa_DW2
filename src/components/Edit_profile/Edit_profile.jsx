@@ -19,18 +19,11 @@ const Edit_profile = () => {
                         <input type="text" />
                        </div>
                        <div className='input2'>
-                        <input type="text" />
-                       </div>
-                       <div className='input3'>
-                        <input type="text" />
-                       </div>
-                       <div className='input4'>
-                        <input type="text" />
-                       </div>
-                       <div className='input5'>
+                       <p>Email</p>
                         <input type="text" />
                        </div>
                     </div>
+                    <button className='botao_edit'>Guardar</button> 
                 </div>
             </div>
         </div>

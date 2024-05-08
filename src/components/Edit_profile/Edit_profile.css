@@ -19,11 +19,33 @@
     border-radius: 50%;
 }
 .editar button{
-    background-color: #929292;
     border: none;
     width: 120px;
     height: 30px;
     font-size: 15px;
     border-radius: 20px;
     cursor: pointer;
+}
+.inputs{
+    width: 300px;
+    margin: 0 auto;
+}
+.inputs input{
+    height: 40px;
+    width: 300px;
+    font-size: 20px;
+}
+.inputs p{
+    text-align: left;
+    font-size: 20px;
+}
+.botao_edit{
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+    margin-top: 30px;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 20px;
 }
