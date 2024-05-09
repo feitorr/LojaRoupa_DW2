@@ -10,16 +10,18 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 const Roupa_filtrada = () => {
     const [roupas, setRoupas] = useState([]);
     var url = window.location.href;
-    var regex = /[?&]categoria=(\d+)/i;
+    var regex = /[?&]categoria=([\w!@#$%^&*()-]+)/i;
     var match = regex.exec(url);
     useEffect(() => {
+        var categoryId = match[1];
         async function fetchRoupas() {
+            console.log(categoryId)
             try {
                 const { data, error } = await supabase
                     .from("roupa")
                     .select("*")
                     
-                    .eq('categoria', 'T-shirt')
+                    .eq('categoria', categoryId)
                     .eq('estado', '1')
                 if (error) {
                     throw error;

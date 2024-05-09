@@ -14,27 +14,27 @@ const Categoria_homem = () => {
             </div>
             <div className='container_cm'>
                 <div className="categoria">
-                    <Link to={`/roupa?categoria=${"tshirt"}`}>
+                    <Link to={`/roupa?categoria=${"T-shirt"}`}>
                     <img src={tshirt} alt="T-SHIRTS" />
                     <p>T-SHIRTS</p>
                     </Link>
                 </div>
                 <div className="categoria">
-                <Link to={`/roupa?categoria=${"sweat"}`}>
+                <Link to={`/roupa?categoria=${"Sweats"}`}>
                     <img src={sweat} alt="SWEATS" />
                     <p>SWEATS</p>
                     </Link>
                 </div>
                 <div className="categoria">
-                    <img src={casao} alt="CASACOS" />
+                    <img src={casao} alt="Casacos" />
                     <p>CASACOS</p>
                 </div>
                 <div className="categoria">
-                    <img src={jeans} alt="CALÇAS" />
+                    <img src={jeans} alt="Calças" />
                     <p>CALÇAS</p>
                 </div>
                 <div className="categoria">
-                    <img src={chapeu} alt="CHAPÉUS" />
+                    <img src={chapeu} alt="Chapéus" />
                     <p>CHAPÉUS</p>
                 </div>
             </div>
