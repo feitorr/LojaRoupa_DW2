@@ -2,13 +2,14 @@ import React from "react";
 import { IconButton } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
+import { Link } from "react-router-dom";
 import "./Header.css";
 import "../Cart/cart.css";
 
 const Header = () => {
   function carrinho() {
     var cart = document.getElementById("popupCart");
-    cart.classList.toggle("show");
+    cart.classList.toggle("showw");
 
     const sessionStorageData = JSON.parse(sessionStorage.getItem("itemsNaBag"));
 
@@ -57,7 +58,9 @@ const Header = () => {
             <ShoppingCartIcon fontSize="large" />
           </IconButton>
           <IconButton color="inherit" className="header-button">
+            <Link to="/login">
             <PersonIcon />
+            </Link>
           </IconButton>
         </div>
       </header>

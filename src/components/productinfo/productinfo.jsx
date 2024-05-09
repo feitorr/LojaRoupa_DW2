@@ -12,11 +12,6 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 var tamanhosGlobal;
 var corGlobal;
 
-var url = window.location.href;
-var regex = /[?&]id=(\d+)/i;
-var match = regex.exec(url);
-var productId = match[1];
-console.log(match)
 class ProductInfo extends React.Component {
   state = {
     titulo: "",
@@ -48,6 +43,14 @@ class ProductInfo extends React.Component {
 
   async fetchData() {
     try {
+      
+var url = window.location.href;
+var regex = /[?&]id=(\d+)/i;
+var match = regex.exec(url);
+
+if(match){
+  var productId = match[1];
+}
       const { data, error } = await supabase
         .from("roupa")
         .select("titulo, preco,imagem, tamanho, cores")
@@ -177,7 +180,7 @@ class ProductInfo extends React.Component {
         <div className="product-info">
           <h1>{this.state.titulo}</h1>
           <p id="saldo">80.00€</p>
-          <p id="preco">{this.state.preco}</p>
+          <p id="preco">{this.state.preco}€</p>
           <div className="conjunto">
             {tamanhos.map((tamanho, index) => (
               <button

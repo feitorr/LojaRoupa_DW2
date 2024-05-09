@@ -53,7 +53,6 @@ const LoginPage = () => {
         <img src={faceLogo} alt="face" />
         <img src={instaLogo} alt="insta" />
       </div>
-      <p className="convidado"> Entrar como convidado</p>
     </div>
   );
 };

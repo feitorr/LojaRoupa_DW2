@@ -19,25 +19,28 @@
 }
 
 .cardd{
+    cursor: pointer;
+    height: 300px;
     padding: 10px;
     border-radius: 10px;
-    width: fit-content;
+    width: 250px;
     background-color: #ffffff;
 }
-.cardd:hover{
-    cursor: pointer;
-    background-color: #e2e2e2;
+
+.carddimage{
+  height: fit-content;
+   text-align: center;
+}
+.carddimage:hover{
+  background-color: #e0e0e0;
 }
 .carddimage img{
-    width: 200px;
-}
-.carddimage{
-   text-align: center;
+  width: 250px ;
+  height: 260px;
 }
 .allnew{
     width: 70%;
     margin: 0 auto;
-    
 }
 .allnew h1{
     margin-top: 80px;
@@ -61,12 +64,13 @@
       gap: 0;
     }
   }
-  @media screen and (max-width: 556px) {
+  @media screen and (max-width: 675px) {
     .newarrival{
         justify-content: center;
         width: 95%;
     }
     .cardd{
+      height: fit-content;
         width: 100%;
     }
   }
