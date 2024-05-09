@@ -14,14 +14,16 @@ const Categoria_homem = () => {
             </div>
             <div className='container_cm'>
                 <div className="categoria">
-                    <Link to="/roupa">
+                    <Link to={`/roupa?categoria=${"tshirt"}`}>
                     <img src={tshirt} alt="T-SHIRTS" />
                     <p>T-SHIRTS</p>
                     </Link>
                 </div>
                 <div className="categoria">
+                <Link to={`/roupa?categoria=${"sweat"}`}>
                     <img src={sweat} alt="SWEATS" />
                     <p>SWEATS</p>
+                    </Link>
                 </div>
                 <div className="categoria">
                     <img src={casao} alt="CASACOS" />
