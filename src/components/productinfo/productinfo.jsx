@@ -180,7 +180,7 @@ if(match){
         <div className="product-info">
           <h1>{this.state.titulo}</h1>
           <p id="saldo">80.00€</p>
-          <p id="preco">{this.state.preco}</p>
+          <p id="preco">{this.state.preco}€</p>
           <div className="conjunto">
             {tamanhos.map((tamanho, index) => (
               <button
