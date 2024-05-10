@@ -23,19 +23,25 @@ const Categoria_homem = () => {
                 <Link to={`/roupa?categoria=${"Sweats"}`}>
                     <img src={sweat} alt="SWEATS" />
                     <p>SWEATS</p>
+                    </Link> 
+                </div>
+                <div className="categoria">
+                <Link to={`/roupa?categoria=${"Casacos"}`}>
+                    <img src={casao} alt="Casacos" />
+                    <p>CASACOS</p>
                     </Link>
                 </div>
                 <div className="categoria">
-                    <img src={casao} alt="Casacos" />
-                    <p>CASACOS</p>
-                </div>
-                <div className="categoria">
-                    <img src={jeans} alt="Calças" />
+                <Link to={`/roupa?categoria=${"Calças"}`}>
+                    <img src={jeans} alt="Calcas" />
                     <p>CALÇAS</p>
+                    </Link>
                 </div>
                 <div className="categoria">
+                <Link to={`/roupa?categoria=${"Chapeus"}`}>
                     <img src={chapeu} alt="Chapéus" />
                     <p>CHAPÉUS</p>
+                    </Link>
                 </div>
             </div>
         </>

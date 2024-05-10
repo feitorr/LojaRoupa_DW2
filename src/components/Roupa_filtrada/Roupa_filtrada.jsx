@@ -20,7 +20,6 @@ const Roupa_filtrada = () => {
                 const { data, error } = await supabase
                     .from("roupa")
                     .select("*")
-                    
                     .eq('categoria', categoryId)
                     .eq('estado', '1')
                 if (error) {
@@ -36,7 +35,7 @@ const Roupa_filtrada = () => {
     }, []); 
     return (
         <>
-           <div className="collection" style={{ marginTop: "15px"}}>
+           <div className="collection" style={{ marginTop: "55px"}}>
                     {roupas.map((roupa, index) => (
                         <Link className="Link"to={`/product?id=${roupa.id}`}>
                         <div className="card" key={index}>
