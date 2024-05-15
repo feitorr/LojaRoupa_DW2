@@ -42,7 +42,7 @@ const New_collection_homem = () => {
                             </div>
                             <p className="category">{roupa.categoria} / {roupa.marca}</p>
                             <h2 className="brand">{roupa.titulo}</h2>
-                            <p className="price">{roupa.preco}€</p>
+                            <p className="price">{parseFloat(roupa.preco).toFixed(2)}€</p>
                         </div>
                         </Link>
                     ))}

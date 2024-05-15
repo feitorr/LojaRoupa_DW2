@@ -16,9 +16,10 @@ class ProductInfo extends React.Component {
   state = {
     titulo: "",
     preco: "",
+    promocao: "",
     imagem: "",
     tamanhos: ["XS", "S", "M", "L", "XL"],
-    cores: ["preto", "vermelho", "azul", "branco", "amarelo"]
+    cores: ["preto", "vermelho", "azul", "branco", "amarelo"],
   };
 
   componentDidMount() {
@@ -43,17 +44,16 @@ class ProductInfo extends React.Component {
 
   async fetchData() {
     try {
-      
-var url = window.location.href;
-var regex = /[?&]id=(\d+)/i;
-var match = regex.exec(url);
+      var url = window.location.href;
+      var regex = /[?&]id=(\d+)/i;
+      var match = regex.exec(url);
 
-if(match){
-  var productId = match[1];
-}
+      if (match) {
+        var productId = match[1];
+      }
       const { data, error } = await supabase
         .from("roupa")
-        .select("titulo, preco,imagem, tamanho, cores")
+        .select("titulo, preco,promocao,imagem, tamanho, cores")
         .eq("id", productId)
         .single();
 
@@ -61,9 +61,15 @@ if(match){
         console.error("Erro ao buscar dados:", error.message);
       } else {
         if (data) {
-          this.setState({ titulo: data.titulo, preco: data.preco ,imagem: data.imagem});
+          this.setState({
+            titulo: data.titulo,
+            preco: data.preco,
+            promocao: data.promocao,
+            imagem: data.imagem,
+          });
           this.updateTamanhos(data.tamanho);
           this.updateCores(data.cores);
+          this.verificarPromocao();
         } else {
           console.error("Nenhum dado encontrado.");
         }
@@ -101,10 +107,10 @@ if(match){
 
   funcCores = (id) => {
     const cores = this.state.cores;
-  
+
     cores.forEach((cor) => {
       const elemento = document.getElementById(cor.split(" ")[0]);
-  
+
       if (cor.split(" ")[0] === id) {
         if (cor.includes("colorShow")) {
           elemento.classList.add("selectedCor");
@@ -118,7 +124,6 @@ if(match){
       }
     });
   };
-  
 
   funcTamanho = (id) => {
     const tamanhos = this.state.tamanhos;
@@ -142,7 +147,7 @@ if(match){
         nome: this.state.titulo,
         image: this.state.imagem,
         price: this.state.preco,
-        saldo: this.state.preco,
+        promocao: this.state.promocao,
         tamanho: tamanhosGlobal,
         cor: corGlobal,
         quantidade: 1,
@@ -166,6 +171,16 @@ if(match){
     }
   };
 
+  verificarPromocao = () => {
+    console.log("oi");
+    if (this.state.promocao === null) {
+      var promocao = document.getElementById("saldo");
+      promocao.style.display = "none";
+    } else {
+      promocao.style.display = "block";
+    }
+  };
+
   render() {
     const { tamanhos, cores } = this.state;
 
@@ -179,8 +194,9 @@ if(match){
         </div>
         <div className="product-info">
           <h1>{this.state.titulo}</h1>
-          <p id="saldo">80.00€</p>
-          <p id="preco">{this.state.preco}€</p>
+          <p id="saldo">{parseFloat(this.state.promocao).toFixed(2)}€</p>
+          <p id="preco">{parseFloat(this.state.preco).toFixed(2)}€</p>
+
           <div className="conjunto">
             {tamanhos.map((tamanho, index) => (
               <button
@@ -206,7 +222,9 @@ if(match){
           <div className="cores">
             {cores.map((cor, index) => (
               <li
-                className={`cor ${cor.split(" ")[0]} ${cor.includes("colorShow") ? "colorShow" : ""}`}
+                className={`cor ${cor.split(" ")[0]} ${
+                  cor.includes("colorShow") ? "colorShow" : ""
+                }`}
                 id={cor.split(" ")[0]}
                 key={index}
                 style={{
