@@ -5,6 +5,7 @@ import { createClient } from "@supabase/supabase-js";
 import search from "../../img/search.png";
 import swal from "sweetalert";
 import { MultiSelect } from "primereact/multiselect";
+import deleteIcon from "../../img/delete.png"
 
 const supabaseUrl = "https://lelwhxghwolrpmrkeeuw.supabase.co";
 const supabaseKey =
@@ -386,7 +387,7 @@ const Stock = () => {
                     <td>{item.titulo}</td>
                     <td>
                       <button onClick={() => deleteItem(item.id)}>
-                        Excluir
+                        <img src={deleteIcon}/>
                       </button>
                     </td>
                   </tr>

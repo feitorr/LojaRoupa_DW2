@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Sidebar_admin from "../Sidebar_admin/Sidebar_admin";
-import "./Vendidos.css";
+import "../Stock/Stock.css";
 import { createClient } from "@supabase/supabase-js";
 import search from "../../img/search.png";
 import swal from 'sweetalert';

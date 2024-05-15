@@ -171,6 +171,8 @@
   text-align: center;
 }
 .items-list{
+  border-radius: 10px;
+  border: 1px solid #ddd;
   width: 90%;
   margin: 0 auto;
     overflow-y: auto;
@@ -203,9 +205,35 @@
   }
 .items-list th,
 .items-list td {
+  font-weight: 500;
   padding: 3px;
-  border: 1px solid #ddd;
+  border-top:1px solid #ddd;
+  border-bottom:1px solid #ddd;
   text-align: center;
+}
+.items-list th{
+  background-color: #000000 !important;
+  font-size: 16px;
+  padding: 20px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+}
+.items-list tr td:first-child {
+  color: rgb(139, 139, 139);
+  font-weight: 1000;
+}
+table button{
+  cursor: pointer;
+  background-color: rgb(0, 0, 0,0);
+  border: none;
+}
+table button img{
+  width: 25px !important;
+  height: 25px !important;
+}
+table button img:hover{
+  filter: brightness(0.2);
 }
 
 .items-list th {
