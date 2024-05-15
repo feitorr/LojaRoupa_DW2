@@ -1,7 +1,7 @@
 import "./LoginPage.css";
 import googleLogo from "../../images/google.png";
 import faceLogo from "../../images/facebook.png";
-import instaLogo from "../../images//instagram.png";
+import instaLogo from "../../images//instagram.png";  
 
 const LoginPage = () => {
   return (

@@ -34,7 +34,11 @@ const Stock = () => {
 
   const fetchItemsFromSupabase = async () => {
     try {
-      const { data, error } = await supabase.from("roupa").select("*");
+      const { data, error } = await supabase
+        .from("roupa")
+        .select("*")
+        .eq("estado", "1");
+      
       if (error) {
         throw error;
       }
