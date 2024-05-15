@@ -20,16 +20,17 @@ const Sidebar_admin = () => {
             </Link>
           </div>
           <div className="botoes">
-            <button>Stock</button>
-          </div>
-          <div className="botoes">
-            <button>Adicionar Stock</button>
+          <Link to="/stock">
+              <button>Stock</button>
+            </Link>
           </div>
           <div className="botoes">
             <button>Promoções</button>
           </div>
           <div className="botoes">
+          <Link to="/vendidos">
             <button>Vendidos</button>
+            </Link>
           </div>
           <div className="botoes">
             <button>Clientes</button>

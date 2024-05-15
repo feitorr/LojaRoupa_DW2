@@ -1,0 +1,11 @@
+.graf{
+    width: calc(100% - 300px);
+    margin-left: 300px;
+}
+.graf h1{
+    text-align: center;
+}
+.graf_cont{
+    width: 98%;
+    margin: 0 auto;
+}

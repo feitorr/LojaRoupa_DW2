@@ -12,8 +12,11 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Product from "./pages/productinfo";
 import Pagina_roupa from "./pages/Pagina_roupa";
+import StockClothes from "./components/Stock/Stock";
 import Edit_profile from "./components/Edit_profile/Edit_profile";
 import { createClient } from "@supabase/supabase-js";
+import Vendidos from "./components/Vendidos/Vendidos";
+import P_graficos from "./components/P_graficos/P_graficos";
 
 const supabaeurl = 'https://lelwhxghwolrpmrkeeuw.supabase.co';
 const supabasekey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlbHdoeGdod29scnBtcmtlZXV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTMxNzYwOTQsImV4cCI6MjAyODc1MjA5NH0.4Uvxw93JsGUMigcWASudRAebz4C9WmNdiF8yCCqRkFI';
@@ -38,6 +41,9 @@ function App() {
           <Route path="signup" element={<SignUp />} />
           <Route path="login" element={<Login />} />
           <Route path="edit" element={<Edit_profile />} />
+          <Route path="graficos" element={<P_graficos />} />
+          <Route path="vendidos" element={<Vendidos/>} />
+          <Route path="stock" element={<StockClothes />} />
           <Route path="/admin" element={<Admin />} />
         </Route>
       </Routes>
