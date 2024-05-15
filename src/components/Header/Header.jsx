@@ -47,8 +47,8 @@ const Header = () => {
     <>
       <header className="header">
         <div className="header-title">
-          <span className="header-rizz">RIZZ</span>
-          <span className="header-land">LAND</span>
+        <Link className="link" to="/"><span className="header-rizz">RIZZ</span>
+          <span className="header-land">LAND</span></Link>
         </div>
         <div className="header-buttons">
           <IconButton
