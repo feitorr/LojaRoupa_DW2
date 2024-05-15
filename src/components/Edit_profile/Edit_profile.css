@@ -3,12 +3,15 @@
 }
 
 .edit {
+    display: flex;
+    justify-content: right;
     width: 1600px;
     height: 900px;
     margin: 0 auto;
     text-align: center;
 }
 .Titulo{
+    width: calc(100% - 300px);
     font-size: 25px;
 }
 .Titulo img{
