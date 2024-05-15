@@ -3,10 +3,12 @@ import Sidebar_admin from "../Sidebar_admin/Sidebar_admin";
 import "./Stock.css";
 import { createClient } from "@supabase/supabase-js";
 import search from "../../img/search.png";
-import swal from 'sweetalert';
+import swal from "sweetalert";
+import { MultiSelect } from "primereact/multiselect";
 
 const supabaseUrl = "https://lelwhxghwolrpmrkeeuw.supabase.co";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlbHdoeGdod29scnBtcmtlZXV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTMxNzYwOTQsImV4cCI6MjAyODc1MjA5NH0.4Uvxw93JsGUMigcWASudRAebz4C9WmNdiF8yCCqRkFI";
+const supabaseKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlbHdoeGdod29scnBtcmtlZXV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTMxNzYwOTQsImV4cCI6MjAyODc1MjA5NH0.4Uvxw93JsGUMigcWASudRAebz4C9WmNdiF8yCCqRkFI";
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
@@ -61,17 +63,17 @@ const Stock = () => {
         closeOnClickOutside: false,
         closeOnEsc: false,
       });
-  
+
       // Renomear o nome do arquivo
       let fileName = sanitizeFileName(file.name);
       const { data: existingFiles, error: fileError } = await supabase.storage
         .from("imagens")
         .list();
-  
+
       if (fileError) {
         throw fileError; // Lançar erro se houver problema ao listar arquivos
       }
-  
+
       // Verificar se o nome do arquivo já existe
       let count = 1;
       let originalFileName = fileName;
@@ -79,44 +81,68 @@ const Stock = () => {
         fileName = `${originalFileName}_${count}`;
         count++;
       }
-  
+
       // Carregar a imagem para o armazenamento do Supabase na pasta "imagens"
       const { data: fileData, error: uploadError } = await supabase.storage
         .from("imagens")
         .upload(fileName, file);
-  
+
       if (uploadError) {
         throw uploadError; // Lançar erro se houver problema ao carregar a imagem
       }
-  
+
       // Obter a URL da imagem carregada
       const imageUrl = fileData.path;
-  
-      // Adicionar o novo item com a URL da imagem ao Supabase
+
+      // Converter a lista de categorias em uma string separada por vírgulas
+      const categoriasString = newItem.categoria
+        .map((categoria) => categoria.name)
+        .join(",");
+      // Converter a lista de cores em uma string separada por vírgulas
+      const coresString = newItem.cores.map((cor) => cor.name).join(",");
+      // Converter a lista de tamanhos em uma string separada por vírgulas
+      const tamanhosString = newItem.tamanho
+        .map((tamanho) => tamanho.name)
+        .join(",");
+      // Obter o gênero selecionado
+      const generoString = newItem.genero
+        .map((genero) => genero.name)
+        .join(",");
+
+      // Adicionar o novo item com a URL da imagem e categorias como string ao Supabase
       const { data: insertedData, error: insertError } = await supabase
         .from("roupa")
-        .insert([{ ...newItem, imagem: imageUrl }]);
-  
+        .insert([
+          {
+            ...newItem,
+            categoria: categoriasString,
+            cores: coresString,
+            tamanho: tamanhosString,
+            genero: generoString,
+            imagem: imageUrl,
+          },
+        ]);
+
       if (insertError) {
         throw insertError; // Lançar erro se houver problema ao adicionar item ao Supabase
       }
-  
+
       // Se tudo ocorreu bem, exibir mensagem de sucesso
       swal("Sucesso!", "Item adicionado com sucesso!", "success");
-      
+
       // Atualizar a lista de itens e redefinir estado
       await fetchItemsFromSupabase(); // Utilizando await aqui
       if (insertedData && insertedData.length > 0) {
         setItems([...items, insertedData[0]]);
       }
       setNewItem({
-        categoria: "",
+        categoria: [],
         imagem: "",
         marca: "",
-        genero: "",
+        genero: [],
         titulo: "",
-        cores: "",
-        tamanho: "",
+        cores: [],
+        tamanho: [],
         preco: "",
         estado: "1", // Definindo o estado padrão como "1"
       });
@@ -126,7 +152,7 @@ const Stock = () => {
       swal("Erro!", "Ocorreu um erro ao adicionar o item.", "error");
     }
   };
-  
+
   const sortByItemId = (a, b) => {
     return a.id - b.id;
   };
@@ -138,57 +164,64 @@ const Stock = () => {
       icon: "warning",
       buttons: true,
       dangerMode: true,
-    })
-      .then(async (willDelete) => {
-        if (willDelete) {
-          swal("A apagar...", {
-            buttons: false,
-            closeOnClickOutside: false,
-            closeOnEsc: false,
-          });
-          try {
-            await supabase.from("roupa").delete().eq("id", id);
-            setItems(items.filter((item) => item.id !== id));
-            swal("Sucesso!", "Item apagado com sucesso.", "success");
-          } catch (error) {
-            console.error("Error deleting item from Supabase:", error.message);
-            swal("Error!", "Ocorreu um erro ao apagar. Por favor, tente novamente", "error");
-          }
-        } else {
-          swal("Cancelado");
+    }).then(async (willDelete) => {
+      if (willDelete) {
+        swal("A apagar...", {
+          buttons: false,
+          closeOnClickOutside: false,
+          closeOnEsc: false,
+        });
+        try {
+          await supabase.from("roupa").delete().eq("id", id);
+          setItems(items.filter((item) => item.id !== id));
+          swal("Sucesso!", "Item apagado com sucesso.", "success");
+        } catch (error) {
+          console.error("Error deleting item from Supabase:", error.message);
+          swal(
+            "Error!",
+            "Ocorreu um erro ao apagar. Por favor, tente novamente",
+            "error"
+          );
         }
-      });
+      } else {
+        swal("Cancelado");
+      }
+    });
   };
 
   const handleFileChange = (event) => {
+      var imgBorder = document.getElementById("imgBorder");
+      imgBorder.style.borderBottom = "1px solid #ccc";
+      
+      var imgText = document.getElementById("addImg");
+      imgText.style.display = "none";
+      
     const fileUploadInput = event.target;
 
-  
     if (!fileUploadInput.files[0]) {
       return;
     }
-  
+
     const image = fileUploadInput.files[0];
- 
-    if (!image.type.includes('image')) {
-      return alert('Only images are allowed!');
+
+    if (!image.type.includes("image")) {
+      return alert("Only images are allowed!");
     }
-  
+
     if (image.size > 10_000_000) {
-      return alert('Maximum upload size is 10MB!');
+      return alert("Maximum upload size is 10MB!");
     }
-  
+
     const fileReader = new FileReader();
     fileReader.readAsDataURL(image);
-  
+
     fileReader.onload = (fileReaderEvent) => {
-      const profilePicture = document.querySelector('.profile-picture');
+      const profilePicture = document.querySelector(".profile-picture");
       profilePicture.style.backgroundImage = `url(${fileReaderEvent.target.result})`;
     };
 
     setFile(image);
   };
-  
 
   const displayModal = () => {
     var modal = document.getElementById("add-item");
@@ -224,21 +257,7 @@ const Stock = () => {
             X
           </span>
           <h2>Adicionar Itens</h2>
-          <input
-            type="text"
-            placeholder="Título"
-            value={newItem.titulo}
-            onChange={(e) => setNewItem({ ...newItem, titulo: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Categoria"
-            value={newItem.categoria}
-            onChange={(e) =>
-              setNewItem({ ...newItem, categoria: e.target.value })
-            }
-          />
-          <div className="profile-picture">
+          <div className="profile-picture" id="imgBorder">
             <h1 className="upload-icon">
               <i className="fa fa-plus fa-2x" aria-hidden="true"></i>
             </h1>
@@ -248,9 +267,14 @@ const Stock = () => {
               onChange={handleFileChange}
               accept="image/*"
             />
-
           </div>
-
+          <p id="addImg">Adicionar imagem</p>
+          <input
+            type="text"
+            placeholder="Título"
+            value={newItem.titulo}
+            onChange={(e) => setNewItem({ ...newItem, titulo: e.target.value })}
+          />
           <input
             type="text"
             placeholder="Marca"
@@ -259,29 +283,66 @@ const Stock = () => {
           />
           <input
             type="text"
-            placeholder="Gênero"
-            value={newItem.genero}
-            onChange={(e) => setNewItem({ ...newItem, genero: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Cores"
-            value={newItem.cores}
-            onChange={(e) => setNewItem({ ...newItem, cores: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Tamanhos"
-            value={newItem.tamanho}
-            onChange={(e) =>
-              setNewItem({ ...newItem, tamanho: e.target.value })
-            }
-          />
-          <input
-            type="text"
             placeholder="Preço"
             value={newItem.preco}
             onChange={(e) => setNewItem({ ...newItem, preco: e.target.value })}
+          />
+          <MultiSelect
+            value={newItem.genero}
+            onChange={(e) => setNewItem({ ...newItem, genero: e.value })}
+            options={[{ name: "Homem" }, { name: "Mulher" }]}
+            optionLabel="name"
+            placeholder="Selecione o Género"
+            maxSelectedLabels={1}
+            className="drop"
+          />
+          <MultiSelect
+            value={newItem.categoria}
+            onChange={(e) => setNewItem({ ...newItem, categoria: e.value })}
+            options={[
+              { name: "T-shirt" },
+              { name: "Sweats" },
+              { name: "Casacos" },
+              { name: "Jeans" },
+              { name: "Chapeus" },
+              { name: "Saias" },
+              { name: "Tops" },
+              { name: "Vestidos" },
+            ]}
+            optionLabel="name"
+            placeholder="Selecione a Categoria"
+            maxSelectedLabels={1}
+            className="drop"
+          />
+          <MultiSelect
+            value={newItem.cores}
+            onChange={(e) => setNewItem({ ...newItem, cores: e.value })}
+            options={[
+              { name: "branco" },
+              { name: "vermelho" },
+              { name: "preto" },
+              { name: "amarelo" },
+              { name: "azul" },
+            ]}
+            optionLabel="name"
+            placeholder="Selecione as Cores"
+            maxSelectedLabels={5}
+            className="drop"
+          />
+          <MultiSelect
+            value={newItem.tamanho}
+            onChange={(e) => setNewItem({ ...newItem, tamanho: e.value })}
+            options={[
+              { name: "XS" },
+              { name: "S" },
+              { name: "M" },
+              { name: "L" },
+              { name: "XL" },
+            ]}
+            optionLabel="name"
+            placeholder="Selecione os Tamanhos"
+            maxSelectedLabels={5}
+            className="drop"
           />
           <button onClick={addItem}>Adicionar Item</button>
         </div>
