@@ -32,7 +32,7 @@ const Categoria_homem = () => {
                     </Link>
                 </div>
                 <div className="categoria">
-                <Link to={`/roupa?categoria=${"Calças"}`}>
+                <Link to={`/roupa?categoria=${"Jeans"}`}>
                     <img src={jeans} alt="Calcas" />
                     <p>CALÇAS</p>
                     </Link>

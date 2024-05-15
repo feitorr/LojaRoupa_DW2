@@ -1,0 +1,24 @@
+.collection_rf{
+    margin: 0 auto;
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(4,minmax(300px,1fr));
+}
+@media screen and (max-width: 1800px) {
+    .collection_rf{
+    grid-template-columns: repeat(3,minmax(300px,1fr));
+    }
+}
+@media screen and (max-width: 1546px) {
+    .collection_rf{
+        gap: 50px;
+        width: 70%;
+    grid-template-columns: repeat(2,minmax(300px,1fr));
+    }
+}
+@media screen and (max-width: 1266px) {
+    .collection_rf{
+        width: 90%;
+    grid-template-columns: repeat(1,minmax(300px,1fr));
+    }
+}

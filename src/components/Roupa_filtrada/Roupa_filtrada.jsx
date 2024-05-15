@@ -35,7 +35,7 @@ const Roupa_filtrada = () => {
     }, []); 
     return (
         <>
-           <div className="collection" style={{ marginTop: "55px"}}>
+           <div className="collection_rf" style={{ marginTop: "55px"}}>
                     {roupas.map((roupa, index) => (
                         <Link className="Link"to={`/product?id=${roupa.id}`}>
                         <div className="card" key={index}>

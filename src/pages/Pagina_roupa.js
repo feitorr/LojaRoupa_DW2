@@ -12,7 +12,7 @@ const Pagina_roupa = () => {
         <Cart />
         <div style={{ display: "flex", width:"100%"}} >
         <Filtragem />
-        <div style={{ textAlign:"center", width:"100%" }}>
+        <div style={{ textAlign:"center",width:"90%" }}>
         <Roupa_filtrada/>
         </div>
         </div>
