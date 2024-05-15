@@ -3,6 +3,7 @@ import Sidebar_admin from "../Sidebar_admin/Sidebar_admin";
 import "./Stock.css";
 import { createClient } from "@supabase/supabase-js";
 import search from "../../img/search.png";
+import swal from 'sweetalert';
 
 const supabaseUrl = "https://lelwhxghwolrpmrkeeuw.supabase.co";
 const supabaseKey =
@@ -47,6 +48,14 @@ const Stock = () => {
   };
 
   const addItem = async () => {
+    swal({
+      title: "Aguarde...",
+      text: "Adicionando item...",
+      icon: "info",
+      buttons: false,
+      closeOnClickOutside: false,
+      closeOnEsc: false,
+    });
     try {
       // Renomear o nome do arquivo
       let fileName = sanitizeFileName(file.name);
@@ -85,6 +94,8 @@ const Stock = () => {
       if (error) {
         throw error;
       }
+      swal("Sucesso!", "Item adicionado com sucesso!", "success");
+      fetchItemsFromSupabase();
       setItems([...items, data[0]]);
       setNewItem({
         categoria: "",
@@ -97,9 +108,8 @@ const Stock = () => {
         preco: "",
         estado: "1", // Definindo o estado padrão como "1"
       });
-      setFile(null); // Limpa o arquivo carregado
-      // Após adicionar, buscar novamente os itens do Supabase para atualizar a tabela
       fetchItemsFromSupabase();
+      setFile(null); 
     } catch (error) {
       console.error("Erro ao adicionar item ao Supabase:", error.message);
     }
@@ -110,13 +120,34 @@ const Stock = () => {
   };
 
   const deleteItem = async (id) => {
-    try {
-      await supabase.from("roupa").delete().eq("id", id);
-      setItems(items.filter((item) => item.id !== id));
-    } catch (error) {
-      console.error("Erro ao excluir item do Supabase:", error.message);
-    }
+    swal({
+      title: "Tens a certeza?",
+      text: "Uma vez apagado não vai ser possível recuperar",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then(async (willDelete) => {
+      if (willDelete) {
+        swal("A apagar...", {
+          buttons: false,
+          closeOnClickOutside: false,
+          closeOnEsc: false,
+        });
+        try {
+          await supabase.from("roupa").delete().eq("id", id);
+          setItems(items.filter((item) => item.id !== id));
+          swal("Sucesso!", "Item apagado com sucesso.", "success");
+        } catch (error) {
+          console.error("Error deleting item from Supabase:", error.message);
+          swal("Error!", "Ocorreu um erro ao apagar. Por favor, tente novamente", "error");
+        }
+      } else {
+        swal("Cancelado");
+      }
+    });
   };
+  
 
   const displayModal = () => {
     var modal = document.getElementById("add-item");
