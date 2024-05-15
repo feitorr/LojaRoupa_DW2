@@ -27,26 +27,6 @@
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #bbb;
   }
-  
-  .profile-picture {
-    z-index: -1000;
-    opacity: 1;
-    height: 150px;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    background: url('https://lelwhxghwolrpmrkeeuw.supabase.co/storage/v1/object/public/imagens/image.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-clip: content-box;
-    -webkit-background-size: contain;
-    -moz-background-size: contain; 
-    -o-background-size: contain; 
-    border: 1px solid #ebebeb;
-}
-
-  
   /* toggle icon state */
   .profile-picture:hover .upload-icon {
     opacity: 1;
