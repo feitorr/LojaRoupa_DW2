@@ -13,16 +13,24 @@ const NewArrival = () => {
   useEffect(() => {
     async function fetchRoupas() {
       try {
-        const { data, error } = await supabase
+        const { data: allRoupas, error } = await supabase
           .from("roupa")
           .select("*")
           .eq('genero', 'Homem')
-          .eq('estado', '1')
-          .limit(4);
+          .eq('estado', '1');
         if (error) {
           throw error;
         }
-        setRoupas(data);
+
+        const selectedIndices = [];
+        while (selectedIndices.length < 4) {
+          const randomIndex = Math.floor(Math.random() * allRoupas.length);
+          if (!selectedIndices.includes(randomIndex)) {
+            selectedIndices.push(randomIndex);
+          }
+        }
+        const randomRoupas = selectedIndices.map(index => allRoupas[index]);
+        setRoupas(randomRoupas);
       } catch (error) {
         console.error("Erro ao buscar roupas:", error.message);
       }
@@ -44,7 +52,7 @@ const NewArrival = () => {
             <div className="cardd" key={index} onClick={() => handleLinkClick(roupa.id)}>
               <div className="carddcontent">
                 <div className="carddimage">
-                  <img src={roupa.imagem} alt="Roupa" />
+                  <img src={`https://lelwhxghwolrpmrkeeuw.supabase.co/storage/v1/object/public/imagens/${roupa.imagem}`} alt="Roupa" />
                 </div>
                 <p className="category">{roupa.categoria} / {roupa.marca}</p>
                 <h2 className="brand">{roupa.titulo}</h2>

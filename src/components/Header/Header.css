@@ -7,7 +7,22 @@
   color: #333;
   margin-top: 30px;
 }
-
+.finalizar{
+  width: 100%;
+  border: none;
+  background-color: black;
+  color: #fff;
+  cursor: pointer;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+.finalizar:hover{
+transition: all 0.2s;
+color: #000000;
+background-color: #dadada;
+}
 .header-title {
   font-size: 24px;
   flex-grow: 1;

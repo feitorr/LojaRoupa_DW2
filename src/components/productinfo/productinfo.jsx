@@ -173,7 +173,7 @@ if(match){
       <div className="product">
         <div className="productimg">
           <img
-            src={this.state.imagem}
+            src={`https://lelwhxghwolrpmrkeeuw.supabase.co/storage/v1/object/public/imagens/${this.state.imagem}`}
             alt="Imagem do produto"
           ></img>
         </div>

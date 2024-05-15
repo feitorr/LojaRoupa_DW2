@@ -1,22 +1,26 @@
 import { useEffect, useState } from "react";
+import './Roupa_filtrada.css';
 import { createClient } from "@supabase/supabase-js";
 import { Link } from "react-router-dom";
-import "../New_collection/New_collection.css";
-
 const supabaseUrl = "https://lelwhxghwolrpmrkeeuw.supabase.co";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlbHdoeGdod29scnBtcmtlZXV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTMxNzYwOTQsImV4cCI6MjAyODc1MjA5NH0.4Uvxw93JsGUMigcWASudRAebz4C9WmNdiF8yCCqRkFI";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-const New_collection_homem = () => {
-    const [roupas, setRoupas] = useState([]);
 
+const Roupa_filtrada = () => {
+    const [roupas, setRoupas] = useState([]);
+    var url = window.location.href;
+    var regex = /[?&]categoria=([\w!@#$%^&*()-]+)/i;
+    var match = regex.exec(url);
     useEffect(() => {
+        var categoryId = match[1];
         async function fetchRoupas() {
+            console.log(categoryId)
             try {
                 const { data, error } = await supabase
                     .from("roupa")
                     .select("*")
-                    .eq('genero', 'Homem')
+                    .eq('categoria', categoryId)
                     .eq('estado', '1')
                 if (error) {
                     throw error;
@@ -31,14 +35,12 @@ const New_collection_homem = () => {
     }, []); 
     return (
         <>
-            <div className="container_nc">
-                <h1>NEW COLLECTION</h1>
-                <div className="collection">
+           <div className="collection" style={{ marginTop: "55px"}}>
                     {roupas.map((roupa, index) => (
                         <Link className="Link"to={`/product?id=${roupa.id}`}>
                         <div className="card" key={index}>
                             <div className="new_collection_img">
-                            <img src={`https://lelwhxghwolrpmrkeeuw.supabase.co/storage/v1/object/public/imagens/${roupa.imagem}`} alt="Roupa" />
+                            <img src={roupa.imagem} alt="Roupa" />
                             </div>
                             <p className="category">{roupa.categoria} / {roupa.marca}</p>
                             <h2 className="brand">{roupa.titulo}</h2>
@@ -47,9 +49,8 @@ const New_collection_homem = () => {
                         </Link>
                     ))}
                 </div>
-            </div>
         </>
     );
 };
 
-export default New_collection_homem;
+export default Roupa_filtrada;

@@ -16,30 +16,31 @@ const Header = () => {
     if (!sessionStorageData || sessionStorageData.length === 0) {
       document.getElementById("cart-content").innerHTML =
         "<p>Nada no carrinho</p>";
-      return;
+    } else {
+      const items = sessionStorageData.map(
+        (item, index) =>
+          `<div key=${index}>
+              <div class="cartbags">
+                  <div class="bagimg">
+                      <img src=${item.image}></img>
+                  </div>
+                  <div class="content">
+                      <h2>${item.nome}</h2>
+                      <p class="price">${item.price}€</p>
+                      <p class="bagtamanho">${item.tamanho}</p>
+                      <div class="corbag">
+                          <p>${item.cor}</p>
+                          <p>- ${item.quantidade} +</p>
+                      </div>
+                  </div>
+              </div>
+          </div>`
+      );
+
+      document.getElementById("cart-content").innerHTML = items.join("");
+      document.getElementById("cart-content").innerHTML +=
+        "<button class='finalizar'>Finalizar Compra</button>";
     }
-
-    const items = sessionStorageData.map(
-      (item, index) =>
-        `<div key=${index}>
-            <div class="cartbags">
-                <div class="bagimg">
-                    <img src=${item.image}></img>
-                </div>
-                <div class="content">
-                    <h2>${item.nome}</h2>
-                    <p class="price">${item.price}€</p>
-                    <p class="bagtamanho">${item.tamanho}</p>
-                    <div class="corbag">
-                        <p>${item.cor}</p>
-                        <p>- ${item.quantidade} +</p>
-                    </div>
-                </div>
-            </div>
-        </div>`
-    );
-
-    document.getElementById("cart-content").innerHTML = items.join("");
   }
 
   return (
@@ -59,7 +60,7 @@ const Header = () => {
           </IconButton>
           <IconButton color="inherit" className="header-button">
             <Link to="/login">
-            <PersonIcon />
+              <PersonIcon />
             </Link>
           </IconButton>
         </div>

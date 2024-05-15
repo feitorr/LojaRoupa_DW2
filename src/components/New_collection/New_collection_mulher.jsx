@@ -16,7 +16,7 @@ const New_collection_homem = () => {
                 const { data, error } = await supabase
                     .from("roupa")
                     .select("*")
-                    .eq('genero', 'Homem')
+                    .eq('genero', 'Mulher')
                     .eq('estado', '1')
                 if (error) {
                     throw error;
@@ -38,7 +38,7 @@ const New_collection_homem = () => {
                         <Link className="Link"to={`/product?id=${roupa.id}`}>
                         <div className="card" key={index}>
                             <div className="new_collection_img">
-                            <img src={`https://lelwhxghwolrpmrkeeuw.supabase.co/storage/v1/object/public/imagens/${roupa.imagem}`} alt="Roupa" />
+                            <img src={roupa.imagem} alt="Roupa" />
                             </div>
                             <p className="category">{roupa.categoria} / {roupa.marca}</p>
                             <h2 className="brand">{roupa.titulo}</h2>
