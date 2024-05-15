@@ -2,6 +2,57 @@
     width: calc(100% - 300px);
     margin-left: 300px;
   }
+  .file-uploader {
+    /* make it invisible */
+    opacity: 0;
+    /* make it take the full height and width of the parent container */
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    /* make it absolute positioned */
+    position: absolute;
+    top: 0%;
+    left: 0%;
+  }
+  
+  .upload-icon {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* initial icon state */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: #ccc;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #bbb;
+  }
+  
+  .profile-picture {
+    z-index: -1000;
+    opacity: 0.75;
+    height: 250px;
+    width: 250px;
+    position: relative;
+    overflow: hidden;
+    background: url('https://qph.cf2.quoracdn.net/main-qimg-f32f85d21d59a5540948c3bfbce52e68');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+  }
+  
+  /* toggle icon state */
+  .profile-picture:hover .upload-icon {
+    opacity: 1;
+  }
 .inputPesquisa{
     margin: 10px 0px;
     background-color: #ebebeb;
@@ -113,7 +164,6 @@
   text-align: center;
 }
 
-
 .items-list th {
   background-color: #f2f2f2;
 }
@@ -131,12 +181,23 @@
   height: 100px;
   object-fit: cover;
 }
-@media screen and (max-width: 776px) {
+@media screen and (max-width: 1250px) {
   .items-list{
     max-height: 80vh;
   }
+}
+@media screen and (max-width: 776px) {
   .stock-container {
     width: calc(100% - 200px);
     margin-left: 200px;
   }
+}
+@media screen and (max-width: 570px) {
+    .buttonCenter{
+      display: flex;
+      flex-direction: column;
+    }
+    .inputPesquisa{
+      justify-content: space-between;
+    }
 }

@@ -56,17 +56,18 @@ const Stock = () => {
       closeOnClickOutside: false,
       closeOnEsc: false,
     });
+  
     try {
       // Renomear o nome do arquivo
       let fileName = sanitizeFileName(file.name);
       const { data: existingFiles, error: fileError } = await supabase.storage
         .from("imagens")
         .list();
-
+  
       if (fileError) {
         throw fileError;
       }
-
+  
       // Verificar se o nome do arquivo já existe
       let count = 1;
       let originalFileName = fileName;
@@ -74,26 +75,28 @@ const Stock = () => {
         fileName = `${originalFileName}_${count}`;
         count++;
       }
-
+  
       // Carregar a imagem para o armazenamento do Supabase na pasta "imagens"
       const { data: fileData, error: uploadError } = await supabase.storage
         .from("imagens")
         .upload(fileName, file);
-
+  
       if (uploadError) {
         throw uploadError;
       }
-
+  
       // Obter a URL da imagem carregada
       const imageUrl = fileData.path;
-
+  
       // Adicionar o novo item com a URL da imagem ao Supabase
       const { data, error } = await supabase
         .from("roupa")
         .insert([{ ...newItem, imagem: imageUrl }]);
+        
       if (error) {
         throw error;
       }
+  
       swal("Sucesso!", "Item adicionado com sucesso!", "success");
       fetchItemsFromSupabase();
       setItems([...items, data[0]]);
@@ -108,12 +111,15 @@ const Stock = () => {
         preco: "",
         estado: "1", // Definindo o estado padrão como "1"
       });
-      fetchItemsFromSupabase();
-      setFile(null); 
+      setFile(null);
     } catch (error) {
       console.error("Erro ao adicionar item ao Supabase:", error.message);
+      setTimeout(() => {
+        swal("Erro!", "Ocorreu um erro ao adicionar o item.", "error");
+      }, 10000);
     }
   };
+  
 
   const sortByItemId = (a, b) => {
     return a.id - b.id;
@@ -148,7 +154,27 @@ const Stock = () => {
     });
   };
   
+  function upload() {
 
+    const fileUploadInput = document.querySelector('.file-uploader');
+    if (!fileUploadInput.value) {
+      return;
+    }
+    const image = fileUploadInput.files[0];
+    if (!image.type.includes('image')) {
+      return alert('Only images are allowed!');
+    }
+    if (image.size > 10_000_000) {
+      return alert('Maximum upload size is 10MB!');
+    }
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(image);
+  
+    fileReader.onload = (fileReaderEvent) => {
+      const profilePicture = document.querySelector('.profile-picture');
+      profilePicture.style.backgroundImage = `url(${fileReaderEvent.target.result})`;
+    }
+  }
   const displayModal = () => {
     var modal = document.getElementById("add-item");
     modal.classList.toggle("showed");
@@ -197,10 +223,17 @@ const Stock = () => {
               setNewItem({ ...newItem, categoria: e.target.value })
             }
           />
-          <input
-            type="file" // Alterado para um campo de arquivo
-            onChange={(e) => setFile(e.target.files[0])} // Armazena o arquivo carregado no estado
-          />
+          <div class="profile-picture">
+      <h1 class="upload-icon">
+        <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+      </h1>
+      <input
+        class="file-uploader"
+        type="file"
+        onchange={upload}
+        accept="image/*"
+      />
+    </div>
           <input
             type="text"
             placeholder="Marca"
