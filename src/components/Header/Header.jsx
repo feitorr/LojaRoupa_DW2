@@ -5,6 +5,10 @@ import PersonIcon from "@mui/icons-material/Person";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import "../Cart/cart.css";
+import { createClient } from "@supabase/supabase-js";
+const supabaseUrl = "https://lelwhxghwolrpmrkeeuw.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlbHdoeGdod29scnBtcmtlZXV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTMxNzYwOTQsImV4cCI6MjAyODc1MjA5NH0.4Uvxw93JsGUMigcWASudRAebz4C9WmNdiF8yCCqRkFI";
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 const Header = () => {
   function carrinho() {
@@ -22,7 +26,7 @@ const Header = () => {
           `<div key=${index}>
               <div class="cartbags">
                   <div class="bagimg">
-                      <img src=${item.image}></img>
+                  <img src=https://lelwhxghwolrpmrkeeuw.supabase.co/storage/v1/object/public/imagens/${item.image} alt="Roupa" />
                   </div>
                   <div class="content">
                       <h2>${item.nome}</h2>
