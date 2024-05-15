@@ -25,9 +25,6 @@ const Sidebar_admin = () => {
             </Link>
           </div>
           <div className="botoes">
-            <button>Promoções</button>
-          </div>
-          <div className="botoes">
           <Link to="/vendidos">
             <button>Vendidos</button>
             </Link>

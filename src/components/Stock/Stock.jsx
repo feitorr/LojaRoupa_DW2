@@ -5,6 +5,8 @@ import { createClient } from "@supabase/supabase-js";
 import search from "../../img/search.png";
 import swal from "sweetalert";
 import { MultiSelect } from "primereact/multiselect";
+import deleteIcon from "../../img/delete.png"
+import discount from "../../img/discount-tag.png"
 
 const supabaseUrl = "https://lelwhxghwolrpmrkeeuw.supabase.co";
 const supabaseKey =
@@ -156,6 +158,73 @@ const Stock = () => {
   const sortByItemId = (a, b) => {
     return a.id - b.id;
   };
+  const obterPrecoPorId = (id) => {
+    const item = items.find(item => item.id === id);
+    return item ? item.preco : undefined;
+};
+const addPromo = async (id) => {
+  const precoAtual = obterPrecoPorId(id);
+
+  if (precoAtual !== undefined) {
+      swal({
+          title: "Adicionar uma promoção:",
+          text: `Preço atual: ${precoAtual}€`,
+          content: {
+              element: "input",
+              attributes: {
+                  placeholder: "Insira o novo preço...",
+                  value: precoAtual // Define o valor inicial como o preço atual
+              },
+          },
+          buttons: {
+              cancel: "Cancelar",
+              confirm: {
+                  text: "Salvar",
+                  closeModal: false,
+              },
+          },
+      })
+      .then(async (value) => {
+          if (value !== null) { // Verifica se o valor não é nulo
+              if (value !== "") {
+                  if (parseFloat(value) <= parseFloat(precoAtual)) {
+                      // Atualiza o preço e a promoção no Supabase
+                      try {
+                          await supabase.from("roupa").update({ preco: value, promocao: precoAtual }).eq("id", id);
+                          swal("Sucesso", "Preço atualizado com sucesso!", "success");
+                          // Atualiza a lista de itens para refletir a alteração
+                          await fetchItemsFromSupabase();
+                      } catch (error) {
+                          console.error("Erro ao atualizar o preço no Supabase:", error.message);
+                          swal("Erro", "Ocorreu um erro ao atualizar o preço.", "error");
+                      }
+                  } else {
+                      // Se o novo preço for maior que o preço atual, defina a promoção como nula
+                      try {
+                          await supabase.from("roupa").update({ preco: value, promocao: null }).eq("id", id);
+                          swal("Sucesso", "Preço atualizado com sucesso!", "success");
+                          // Atualiza a lista de itens para refletir a alteração
+                          await fetchItemsFromSupabase();
+                      } catch (error) {
+                          console.error("Erro ao atualizar o preço no Supabase:", error.message);
+                          swal("Erro", "Ocorreu um erro ao atualizar o preço.", "error");
+                      }
+                  }
+              } else {
+                  swal("Aviso", "Nenhum novo preço inserido", "warning");
+              }
+          } else {
+              swal("Aviso", "Operação cancelada", "info");
+          }
+      });
+  } else {
+      swal("Erro", "Preço não encontrado para o ID especificado", "error");
+  }
+}
+
+
+
+
 
   const deleteItem = async (id) => {
     swal({
@@ -382,11 +451,14 @@ const Stock = () => {
                     <td>{item.genero}</td>
                     <td>{item.cores}</td>
                     <td>{item.tamanho}</td>
-                    <td>{item.preco}</td>
+                    <td>{parseFloat(item.preco).toFixed(2)}</td>
                     <td>{item.titulo}</td>
                     <td>
                       <button onClick={() => deleteItem(item.id)}>
-                        Excluir
+                        <img src={deleteIcon}/>
+                      </button>
+                      <button onClick={() => addPromo(item.id)}>
+                        <img src={discount}/>
                       </button>
                     </td>
                   </tr>
