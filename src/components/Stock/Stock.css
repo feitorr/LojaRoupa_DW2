@@ -30,24 +30,22 @@
   
   .profile-picture {
     z-index: -1000;
-    opacity: 0.75;
-    height: 250px;
-    width: 250px;
+    opacity: 1;
+    height: 150px;
+    width: 100%;
     position: relative;
     overflow: hidden;
-    background: url('https://qph.cf2.quoracdn.net/main-qimg-f32f85d21d59a5540948c3bfbce52e68');
+    background: url('https://lelwhxghwolrpmrkeeuw.supabase.co/storage/v1/object/public/imagens/image.png');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-  
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-  
-    -webkit-box-shadow: 0 8px 6px -6px black;
-    -moz-box-shadow: 0 8px 6px -6px black;
-    box-shadow: 0 8px 6px -6px black;
-  }
+    background-size: contain;
+    background-clip: content-box;
+    -webkit-background-size: contain;
+    -moz-background-size: contain; 
+    -o-background-size: contain; 
+    border: 1px solid #ebebeb;
+}
+
   
   /* toggle icon state */
   .profile-picture:hover .upload-icon {
