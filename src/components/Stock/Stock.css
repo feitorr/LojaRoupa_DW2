@@ -14,25 +14,72 @@
     top: 0%;
     left: 0%;
   }
-  
+  .p-multiselect-panel{
+    background-color: #fafafa;
+  }
+  .p-checkbox-box{
+    display: none;
+  }
+  .p-multiselect-header {
+    padding: 5px;
+    border: 1px solid rgb(233, 233, 233);
+}
+  .p-multiselect-item {
+    margin-top: -1px;
+    padding: 5px;
+    border: 1px solid rgb(233, 233, 233);
+  }
+  .p-multiselect-select-all{
+    display: flex;
+  }
+  .drop{
+    font-weight: 400;
+    font-size: 14px;
+    border: 1px solid #b6b6b6;
+    border-radius: 0px;
+    width: 100%;
+    padding: 8px;
+    color: #838383;
+    margin-top: 3px;
+    margin-bottom: 5px;
+    background-color: #fffffff1;
+  }
+  .p-placeholder{
+    text-align: left;
+  }
   .upload-icon {
     position: absolute;
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* initial icon state */
     opacity: 0;
     transition: opacity 0.3s ease;
     color: #ccc;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #bbb;
   }
-  
+  #addImg{
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin: 0;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 700;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+  }
+  .allImg{
+    border: 1px solid #ccc;
+  }
   .profile-picture {
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    position: relative;
     z-index: -1000;
     opacity: 1;
     height: 150px;
-    width: 100%;
     position: relative;
     overflow: hidden;
     background: url('https://lelwhxghwolrpmrkeeuw.supabase.co/storage/v1/object/public/imagens/image.png');
@@ -43,7 +90,6 @@
     -webkit-background-size: contain;
     -moz-background-size: contain; 
     -o-background-size: contain; 
-    border: 1px solid #ebebeb;
 }
 
   
