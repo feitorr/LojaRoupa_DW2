@@ -57,26 +57,27 @@ class ProductInfo extends React.Component {
         .eq("id", productId)
         .single();
 
-      if (error) {
-        console.error("Erro ao buscar dados:", error.message);
-      } else {
-        if (data) {
-          this.setState({
-            titulo: data.titulo,
-            preco: data.preco,
-            promocao: data.promocao,
-            imagem: data.imagem,
-          });
-          this.updateTamanhos(data.tamanho);
-          this.updateCores(data.cores);
-          this.verificarPromocao();
+        if (error) {
+          console.error("Erro ao buscar dados:", error.message);
         } else {
-          console.error("Nenhum dado encontrado.");
+          if (data) {
+            this.setState({
+              titulo: data.titulo,
+              preco: data.preco,
+              promocao: data.promocao,
+              imagem: data.imagem,
+            }, () => {
+              this.verificarPromocao();
+            });
+            this.updateTamanhos(data.tamanho);
+            this.updateCores(data.cores);
+          } else {
+            console.error("Nenhum dado encontrado.");
+          }
         }
+      } catch (error) {
+        console.error("Erro ao buscar dados:", error.message);
       }
-    } catch (error) {
-      console.error("Erro ao buscar dados:", error.message);
-    }
   }
 
   updateTamanhos = (tamanhoAPI) => {
@@ -173,9 +174,8 @@ class ProductInfo extends React.Component {
 
   verificarPromocao = () => {
     const saldoElement = document.getElementById("saldo");
-    const saldoContent = saldoElement.textContent.trim();
     
-    if (saldoContent === "NaN€") {
+    if (this.state.promocao === null) {
       saldoElement.style.display = "none";
     } else {
       saldoElement.style.display = "block";
