@@ -172,17 +172,14 @@ class ProductInfo extends React.Component {
   };
 
   verificarPromocao = () => {
-    console.log(typeof this.state.promocao);
-    console.log(this.state.promocao);
-    
     const promocao = document.getElementById("saldo");
-    if (this.state.promocao === null || this.state.promocao === undefined) {
+    if (isNaN(parseFloat(this.state.promocao))) {
       promocao.style.display = "none";
-    }
-    else{
+    } else {
       promocao.style.display = "block";
     }
   };
+  
   
   render() {
     const { tamanhos, cores } = this.state;
