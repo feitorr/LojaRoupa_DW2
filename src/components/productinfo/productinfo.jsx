@@ -176,8 +176,6 @@ class ProductInfo extends React.Component {
     var promocao = document.getElementById("saldo");
     if (this.state.promocao !== null) {
       promocao.style.display = "block";
-    } else {
-      promocao.style.display = "none";
     }
   };
 
