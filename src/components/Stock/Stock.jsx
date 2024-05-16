@@ -454,11 +454,11 @@ const addPromo = async (id) => {
                     <td>{parseFloat(item.preco).toFixed(2)}</td>
                     <td>{item.titulo}</td>
                     <td>
+                    <button onClick={() => addPromo(item.id)}>
+                        <img src={discount}/>
+                      </button>
                       <button onClick={() => deleteItem(item.id)}>
                         <img src={deleteIcon}/>
-                      </button>
-                      <button onClick={() => addPromo(item.id)}>
-                        <img src={discount}/>
                       </button>
                     </td>
                   </tr>
