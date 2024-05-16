@@ -8,6 +8,9 @@
   cursor: pointer;
   transition: all 0.3s;
 }
+#saldo{
+  display: none;
+}
 .selected {
   background-color: #000;
   color: white !important;
