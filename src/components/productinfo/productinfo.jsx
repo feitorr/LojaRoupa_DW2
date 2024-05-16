@@ -172,11 +172,13 @@ class ProductInfo extends React.Component {
   };
 
   verificarPromocao = () => {
-    const promocao = document.getElementById("saldo");
-    if (isNaN(parseFloat(this.state.promocao))) {
-      promocao.style.display = "none";
+    const saldoElement = document.getElementById("saldo");
+    const saldoContent = saldoElement.textContent.trim();
+    
+    if (saldoContent === "NaN€") {
+      saldoElement.style.display = "none";
     } else {
-      promocao.style.display = "block";
+      saldoElement.style.display = "block";
     }
   };
   
