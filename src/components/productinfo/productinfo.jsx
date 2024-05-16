@@ -9,6 +9,7 @@ const supabaseKey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlbHdoeGdod29scnBtcmtlZXV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTMxNzYwOTQsImV4cCI6MjAyODc1MjA5NH0.4Uvxw93JsGUMigcWASudRAebz4C9WmNdiF8yCCqRkFI";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
+var id;
 var tamanhosGlobal;
 var corGlobal;
 
@@ -47,7 +48,7 @@ class ProductInfo extends React.Component {
       var url = window.location.href;
       var regex = /[?&]id=(\d+)/i;
       var match = regex.exec(url);
-
+      id = match[1];
       if (match) {
         var productId = match[1];
       }
@@ -145,6 +146,7 @@ class ProductInfo extends React.Component {
   addToBag = () => {
     if (tamanhosGlobal && corGlobal) {
       const item = {
+        id : id,
         nome: this.state.titulo,
         image: this.state.imagem,
         price: this.state.preco,

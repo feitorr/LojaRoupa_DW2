@@ -451,7 +451,7 @@ const addPromo = async (id) => {
                     <td>{item.genero}</td>
                     <td>{item.cores}</td>
                     <td>{item.tamanho}</td>
-                    <td>{parseFloat(item.preco).toFixed(2)}</td>
+                    <td>{parseFloat(item.preco).toFixed(2)}€</td>
                     <td>{item.titulo}</td>
                     <td>
                     <button onClick={() => addPromo(item.id)}>
