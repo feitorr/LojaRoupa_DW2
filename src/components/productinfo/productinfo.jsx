@@ -173,11 +173,11 @@ class ProductInfo extends React.Component {
 
   verificarPromocao = () => {
     console.log("oi");
-    if (this.state.promocao === null) {
-      var promocao = document.getElementById("saldo");
-      promocao.style.display = "none";
-    } else {
+    var promocao = document.getElementById("saldo");
+    if (this.state.promocao != null) {
       promocao.style.display = "block";
+    } else {
+      promocao.style.display = "none";
     }
   };
 
