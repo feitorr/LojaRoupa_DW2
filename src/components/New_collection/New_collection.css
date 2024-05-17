@@ -20,7 +20,7 @@
     display: flex;
 }
 .collection{
-    margin: 0 auto;
+    margin: 60px auto 0px auto;
     width: 85%;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(340px,1fr));

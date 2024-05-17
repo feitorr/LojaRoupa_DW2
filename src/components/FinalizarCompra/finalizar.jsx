@@ -7,7 +7,7 @@ const supabaseKey =
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-const FinalizarCompra = async (id, tamanho, cor) => {
+const FinalizarCompra = async (id, tamanhos) => {
     try {
         const { data: rowData, error: rowError } = await supabase
             .from("roupa")
@@ -19,11 +19,20 @@ const FinalizarCompra = async (id, tamanho, cor) => {
             throw rowError;
         }
         
-        const tamanhoArray = rowData.tamanho.split(',').filter(item => item !== tamanho).join(',');
+        // Converte a lista de tamanhos em um array
+        let tamanhoArray = rowData.tamanho.split(',');
+        
+        // Remove todos os tamanhos recebidos da lista
+        tamanhos.forEach(tamanho => {
+            tamanhoArray = tamanhoArray.filter(item => item !== tamanho);
+        });
+        
+        // Converte o array de volta para string
+        const updatedTamanhos = tamanhoArray.join(',');
 
         const { data, error } = await supabase
             .from("roupa")
-            .update({ tamanho: tamanhoArray })
+            .update({ tamanho: updatedTamanhos })
             .eq("id", id);
         
         if (error) {
@@ -31,10 +40,10 @@ const FinalizarCompra = async (id, tamanho, cor) => {
         }
         
         // Verifica se o campo de tamanhos está vazio
-        if (tamanhoArray === '') {
+        if (updatedTamanhos === '') {
             const { data: updateData, error: updateError } = await supabase
                 .from("roupa")
-                .update({ estado: '0' })
+                .update({ estado: '0', cores: null })
                 .eq("id", id);
                 
             if (updateError) {
@@ -42,17 +51,17 @@ const FinalizarCompra = async (id, tamanho, cor) => {
             }
         }
         
-        swal("Sucesso!", "Tamanho removido com sucesso.", "success").then(() => {
+        swal("Sucesso!", "Tamanhos removidos com sucesso.", "success").then(() => {
             // Clear sessionStorage
             sessionStorage.clear();
             // Reload the page
             window.location.reload();
         });
     } catch (error) {
-        console.error("Error removing size from Supabase:", error.message);
+        console.error("Error removing sizes from Supabase:", error.message);
         swal(
             "Error!",
-            "Ocorreu um erro ao remover o tamanho. Por favor, tente novamente",
+            "Ocorreu um erro ao remover os tamanhos. Por favor, tente novamente",
             "error"
         );
     }

@@ -54,31 +54,32 @@ class ProductInfo extends React.Component {
       }
       const { data, error } = await supabase
         .from("roupa")
-        .select("titulo, preco,promocao,imagem, tamanho, cores")
+        .select("titulo, preco,promocao,imagem, tamanho, cores, estado")
         .eq("id", productId)
         .single();
 
-        if (error) {
-          console.error("Erro ao buscar dados:", error.message);
-        } else {
-          if (data) {
-            this.setState({
-              titulo: data.titulo,
-              preco: data.preco,
-              promocao: data.promocao,
-              imagem: data.imagem,
-            }, () => {
-              this.verificarPromocao();
-            });
-            this.updateTamanhos(data.tamanho);
-            this.updateCores(data.cores);
-          } else {
-            console.error("Nenhum dado encontrado.");
-          }
-        }
-      } catch (error) {
+      if (error) {
         console.error("Erro ao buscar dados:", error.message);
+      } else {
+        if (data) {
+          this.setState({
+            titulo: data.titulo,
+            preco: data.preco,
+            promocao: data.promocao,
+            imagem: data.imagem,
+            estado: data.estado,
+          }, () => {
+            this.verificarPromocao();
+          });
+          this.updateTamanhos(data.tamanho);
+          this.updateCores(data.cores);
+        } else {
+          console.error("Nenhum dado encontrado.");
+        }
       }
+    } catch (error) {
+      console.error("Erro ao buscar dados:", error.message);
+    }
   }
 
   updateTamanhos = (tamanhoAPI) => {
@@ -146,7 +147,7 @@ class ProductInfo extends React.Component {
   addToBag = () => {
     if (tamanhosGlobal && corGlobal) {
       const item = {
-        id : id,
+        id: id,
         nome: this.state.titulo,
         image: this.state.imagem,
         price: this.state.preco,
@@ -176,20 +177,20 @@ class ProductInfo extends React.Component {
 
   verificarPromocao = () => {
     const saldoElement = document.getElementById("saldo");
-    
+
     if (this.state.promocao === null) {
       saldoElement.style.display = "none";
     } else {
       saldoElement.style.display = "block";
     }
   };
-  
+
   
   render() {
     const { tamanhos, cores } = this.state;
-
+    const isOutOfStock = this.state.estado === 0;
     return (
-      <div className="product">
+      <div className={`product ${isOutOfStock ? 'esgotado' : ''}`}>
         <div className="productimg">
           <img
             src={`https://lelwhxghwolrpmrkeeuw.supabase.co/storage/v1/object/public/imagens/${this.state.imagem}`}
@@ -226,9 +227,8 @@ class ProductInfo extends React.Component {
           <div className="cores">
             {cores.map((cor, index) => (
               <li
-                className={`cor ${cor.split(" ")[0]} ${
-                  cor.includes("colorShow") ? "colorShow" : ""
-                }`}
+                className={`cor ${cor.split(" ")[0]} ${cor.includes("colorShow") ? "colorShow" : ""
+                  }`}
                 id={cor.split(" ")[0]}
                 key={index}
                 style={{
@@ -242,9 +242,16 @@ class ProductInfo extends React.Component {
               ></li>
             ))}
           </div>
-          <div className="button">
-            <h3 onClick={this.addToBag}>adicionar ao carrinho</h3>
+          <div>
+          <div
+            className={`button ${isOutOfStock ? 'out-of-stock' : ''}`}
+            onClick={isOutOfStock ? null : this.addToBag}
+          >
+            <h3>
+              {isOutOfStock ? 'Esgotado' : 'adicionar ao carrinho'}
+            </h3>
           </div>
+        </div>
 
           <div className="entregas">
             <img src={shop} alt="Icone de loja"></img>

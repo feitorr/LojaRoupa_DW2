@@ -5,32 +5,44 @@
     text-align: center;
     font-size: 23px;
 }
-.container_cm{
+.containerr_cm {
+    padding-top:110px;
+    position: relative; /* Garante que a posição do pseudo-elemento seja relativa a esta div */
     width: 100%;
-    height: 200px;
     display: flex;
-    gap: 50px;
     justify-content: center;
-    margin-top: 30px;
 }
-.categoria{
-    width: 130px;
-    height: 116px;
+.containerr_cm h1{
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.158);
+    filter: drop-shadow(-3px -3px 5px rgba(0, 0, 0, 0));
+    top: -5px;
+    position: absolute;
+    letter-spacing: 4px;
+    width: 100%;
     text-align: center;
-    cursor: pointer;
+    font-size: 150px;
+    color: rgba(255, 255, 255, 0.082);
+    margin: 0;
 }
-.categoria:hover{
-    transition: all 0.2s;
-    transform: scale(1.5);
+.containerr_cm::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://lelwhxghwolrpmrkeeuw.supabase.co/storage/v1/object/public/imagens/360_F_305296774_CYiMv2y87U27SoKT2o2OZFWzUzF8JPrL.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    filter: blur(4px) grayscale(100%); /* Aplica um desfoque de 4px e converte a imagem para preto e branco */
+    z-index: -1;
 }
-.categoria img{
-    width: 116px;
-    height: 140px;
-}
-.jeans{
-    margin-right: -50px;
-}
-.container_cm p{
-   font-size: 13px;
-   font-weight: bold;
-}
+.containerr_cm p{
+    font-size: 13px;
+    font-weight: bold;
+    color: rgb(241, 241, 241);
+    filter: drop-shadow(-3px -3px 7px rgb(54, 54, 54));
+ }
+
+ 
