@@ -1,5 +1,5 @@
 import chapeu from "../Categorias/img_categorias/chapeu_homem.png";
-import jeans from "../Categorias/img_categorias/calças_homem.png";
+import jeans from "../Categorias/img_categorias/carhartt-wip-single-knee-pant-black-garment-dyed__1_-500x500-removebg-preview (1).png";
 import casao from "../Categorias/img_categorias/casaco_homem.png";
 import sweat from "../Categorias/img_categorias/sweat_homem.png";
 import tshirt from "../Categorias/img_categorias/tshirt_homem.png";
