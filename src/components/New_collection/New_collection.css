@@ -7,6 +7,18 @@
     font-size: 30px;
 }
 
+.pricePromocao{
+    font-weight: 700;
+    text-align: left;
+    font-size: 15px;
+    margin-top: -15px;
+    color: #e20606;
+    text-decoration: line-through;
+}
+.precoDiv{
+    gap: 10px;
+    display: flex;
+}
 .collection{
     margin: 0 auto;
     width: 85%;
@@ -23,7 +35,6 @@
     filter: brightness(0.6);
     transition: 0.2s;
 }
-
 .card img{
     width: 300px;
     height: 350px;
@@ -45,6 +56,7 @@
     font-size: 15px;
     margin-top: -15px;
     color: #929292;
+    font-weight: 500;
 }
 .Link{
     text-decoration: none;

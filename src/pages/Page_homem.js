@@ -10,6 +10,7 @@ const Page_homem = () => {
       <Cart />
       <Categoria_homem />
       <New_collection />
+      <Footer />
     </>
   );
 };

@@ -56,7 +56,12 @@ const NewArrival = () => {
                 </div>
                 <p className="category">{roupa.categoria} / {roupa.marca}</p>
                 <h2 className="brand">{roupa.titulo}</h2>
-                <p className="preco">{roupa.preco}€</p>
+                <div className="precoDiv">
+                                    {roupa.promocao !== null && (
+                                        <p className="pricePromocaoo">{parseFloat(roupa.promocao).toFixed(2)}€</p>
+                                    )}
+                                    <p className="preco">{parseFloat(roupa.preco).toFixed(2)}€</p>
+                                </div>
               </div>
             </div>
           ))}
