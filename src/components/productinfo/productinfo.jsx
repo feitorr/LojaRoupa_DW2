@@ -45,6 +45,7 @@ class ProductInfo extends React.Component {
 
   async fetchData() {
     try {
+      window.scrollTo(0, 0);
       var url = window.location.href;
       var regex = /[?&]id=(\d+)/i;
       var match = regex.exec(url);
