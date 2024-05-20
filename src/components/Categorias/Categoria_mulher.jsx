@@ -13,7 +13,7 @@ const Categoria_mulher = () => {
     return (<>
         <div className='containerr_cm'>
             <h1>CATEGORIAS</h1>
-            <div className="flex">
+            <div className="flexx">
                 <div className="categoriaa">
                     <Link class="link" to="/roupa">
                         <img src={tshirt_mulher} />
