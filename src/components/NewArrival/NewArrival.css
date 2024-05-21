@@ -80,6 +80,7 @@
   }
   @media screen and (max-width: 675px) {
     .newarrival{
+      margin: 0 auto;
         justify-content: center;
         width: 95%;
     }
