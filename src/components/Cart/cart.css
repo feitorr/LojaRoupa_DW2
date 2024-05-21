@@ -54,4 +54,9 @@
 .cart .cartbags img{
     width: 150px;
 }
+@media screen and (max-width: 675px) {
+    .cart {
+    width: 80%;
+    }
+}
 

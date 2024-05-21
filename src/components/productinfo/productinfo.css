@@ -240,4 +240,11 @@ height: 500px;
     margin-top: 20px;
    }
 }
+@media screen and (max-width: 600px) {
+  .cores{
+    justify-content: space-around;
+    width: 100%;
+    max-width: 100%;
+}
+}
 
