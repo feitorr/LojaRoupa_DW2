@@ -1,0 +1,24 @@
+
+.modal-group {
+    margin: 10px 0;
+    
+}
+.modal-group h4 {
+    margin-top: -5px;
+    
+}
+
+.modal-group p {
+    margin: 0;
+    padding: 5px 0;
+    text-align: left;
+}
+
+.modal-input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #e2e2e2;
+}
