@@ -16,8 +16,6 @@ const P_graficos = () => {
                 
             </div>
         </div>
-
-
     );
 };
 

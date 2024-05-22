@@ -7,6 +7,8 @@ import swal from "sweetalert";
 import { MultiSelect } from "primereact/multiselect";
 import deleteIcon from "../../img/delete.png"
 import discount from "../../img/discount-tag.png"
+import edit from"../../img/edit.png"
+import Edit_items from "../Edit_items/Edit_items";
 
 const supabaseUrl = "https://lelwhxghwolrpmrkeeuw.supabase.co";
 const supabaseKey =
@@ -167,7 +169,7 @@ const addPromo = async (id) => {
               element: "input",
               attributes: {
                   placeholder: "Insira o novo preço...",
-                  value: precoAtual // Define o valor inicial como o preço atual
+                  value: precoAtual 
               },
           },
           buttons: {
@@ -215,11 +217,6 @@ const addPromo = async (id) => {
       swal("Erro", "Preço não encontrado para o ID especificado", "error");
   }
 }
-
-
-
-
-
   const deleteItem = async (id) => {
     swal({
       title: "Tens a certeza?",
@@ -294,6 +291,30 @@ const addPromo = async (id) => {
   const handleSearchTermChange = (event) => {
     setSearchTerm(event.target.value);
   };
+
+  const editt = async (item) => {
+    try {
+        // Executar a função de edição e aguardar sua conclusão
+         await Edit_items(item);
+
+        // Após a edição, buscar novamente os itens do banco de dados
+        const { data, error } = await supabase
+            .from("roupa")
+            .select("*")
+            .eq("estado", "1");
+
+        if (error) {
+            throw error;
+        }
+
+        // Atualizar o estado 'items' com os novos dados
+        setItems(data);
+    } catch (error) {
+        console.error("Erro ao editar item:", error.message);
+        swal("Erro", "Ocorreu um erro ao editar o item.", "error");
+    }
+};
+
 
   return (
     <div className="admin-container">
@@ -448,7 +469,10 @@ const addPromo = async (id) => {
                     <td>{parseFloat(item.preco).toFixed(2)}€</td>
                     <td>{item.titulo}</td>
                     <td>
-                    <button onClick={() => addPromo(item.id)}>
+                      <button onClick={() => editt(item)}>
+                        <img src={edit}/>
+                      </button>
+                      <button onClick={() => addPromo(item.id)}>
                         <img src={discount}/>
                       </button>
                       <button onClick={() => deleteItem(item.id)}>
