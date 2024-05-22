@@ -73,3 +73,11 @@
 .new_collection_img{
     background-color: #F4F4F4; 
 }
+@media screen and (max-width: 675px) {
+    .Link{
+        width: 100%;
+    }
+    .collection{
+        width: fit-content;
+    }
+}
