@@ -59,4 +59,97 @@
     text-decoration: none;
     transition: all 0.3s;
 }
-
+@media screen and (max-width: 885px) {
+    .tipo{
+        padding: 5px;
+        font-size: 5vw;
+        margin: 0;
+    }
+    .container{
+        margin: 0 auto;
+        width: 90%;
+        margin-top: 20px;
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+    }
+    .link{
+        width: 90%;
+        margin: 0 auto;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+    .mulher{
+        width: 100%;
+        margin: 0 auto;
+        height: auto;
+    }
+    .homem{
+        height: auto;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .imagem_homem{
+        width:80%;
+        margin-top: 20px;
+        height: auto;
+    }
+    .imagem_mulher{
+        width:80%;
+        margin-top: 20px;
+        height: auto;
+    }
+    .logo{
+        width: 100%;
+    }
+    .logo img{
+        margin: 0 auto;
+        width: 60%;
+    }
+}
+@media screen and (max-width: 500px) {
+    .tipo{
+        font-size: 50px;
+        margin: 0;
+    }
+    .container{
+        width: auto;
+        margin-top: 20px;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .link{
+        width: 90%;
+        margin: 0 auto;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+    .mulher{
+        width: 100%;
+        margin: 0 auto;
+        height: auto;
+    }
+    .homem{
+        height: auto;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .imagem_homem{
+        width:80%;
+        margin-top: 20px;
+        height: auto;
+    }
+    .imagem_mulher{
+        width:80%;
+        margin-top: 20px;
+        height: auto;
+    }
+    .logo{
+        width: 100%;
+    }
+    .logo img{
+        margin: 0 auto;
+        width: 90%;
+    }
+}
