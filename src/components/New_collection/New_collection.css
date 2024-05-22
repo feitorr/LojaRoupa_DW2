@@ -7,8 +7,20 @@
     font-size: 30px;
 }
 
+.pricePromocao{
+    font-weight: 700;
+    text-align: left;
+    font-size: 15px;
+    margin-top: -15px;
+    color: #e20606;
+    text-decoration: line-through;
+}
+.precoDiv{
+    gap: 10px;
+    display: flex;
+}
 .collection{
-    margin: 0 auto;
+    margin: 60px auto 0px auto;
     width: 85%;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(340px,1fr));
@@ -23,7 +35,6 @@
     filter: brightness(0.6);
     transition: 0.2s;
 }
-
 .card img{
     width: 300px;
     height: 350px;
@@ -33,6 +44,14 @@
     text-align: left;
     font-size: 20px;
     margin-top: -10px;
+}
+.categoriaa img {
+    mix-blend-mode: darken;
+    opacity: 1;
+    width: 110px;
+    height: 110px;
+    filter: brightness(2);
+  
 }
 .card .category{
     text-align: left;
@@ -45,6 +64,7 @@
     font-size: 15px;
     margin-top: -15px;
     color: #929292;
+    font-weight: 500;
 }
 .Link{
     text-decoration: none;
@@ -52,4 +72,12 @@
 }
 .new_collection_img{
     background-color: #F4F4F4; 
+}
+@media screen and (max-width: 675px) {
+    .Link{
+        width: 100%;
+    }
+    .collection{
+        width: fit-content;
+    }
 }

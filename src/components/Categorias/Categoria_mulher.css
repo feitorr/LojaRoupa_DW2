@@ -5,32 +5,78 @@
     text-align: center;
     font-size: 23px;
 }
-.container_cm{
-    width: 100%;
-    height: 200px;
-    display: flex;
-    gap: 50px;
-    justify-content: center;
-    margin-top: 30px;
-}
-.categoria{
-    width: 130px;
-    height: 116px;
+.categoriaa{
+    filter: drop-shadow(0px 0px 20px rgb(0, 0, 0));
+    background-color: rgb(219, 219, 219);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 0px 0px 70px 0px;
+    z-index: 99999;
+    width: 110px;
     text-align: center;
     cursor: pointer;
-}
-.categoria:hover{
     transition: all 0.2s;
-    transform: scale(1.5);
 }
-.categoria img{
-    width: 116px;
-    height: 140px;
+.categoriaa .link{
+    filter: drop-shadow(0px 0px 2px rgb(255, 255, 255));
+    text-decoration: none;
+    color: rgb(0, 0, 0);
 }
-.jeans{
-    margin-right: -50px;
+.categoriaa:hover{
+    transition: all 0.2s;
+    transform: scale(1.2);
 }
-.container_cm p{
-   font-size: 13px;
-   font-weight: bold;
+.categoriaa img {
+    opacity: 1;
+    width: 110px;
+    height: 110px;
+    filter: drop-shadow(2px 4px 6px rgb(102, 101, 101)) grayscale(0.2);
 }
+.containerr_cm {
+    padding-top:110px;
+    position: relative; /* Garante que a posição do pseudo-elemento seja relativa a esta div */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.containerr_cm h1{
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.158);
+    filter: drop-shadow(-3px -3px 5px rgba(0, 0, 0, 0));
+    top: -5px;
+    position: absolute;
+    letter-spacing: 4px;
+    width: 100%;
+    text-align: center;
+    font-size: 150px;
+    color: rgba(255, 255, 255, 0.082);
+    margin: 0;
+}
+.flexx{
+    width: fit-content;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+.containerr_cm::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://lelwhxghwolrpmrkeeuw.supabase.co/storage/v1/object/public/imagens/360_F_305296774_CYiMv2y87U27SoKT2o2OZFWzUzF8JPrL.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    filter: blur(4px) grayscale(100%); /* Aplica um desfoque de 4px e converte a imagem para preto e branco */
+    z-index: -1;
+}
+.containerr_cm p{
+    filter: drop-shadow(0px 0px 4px rgb(100, 100, 100));
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);  
+ }
+
+ 

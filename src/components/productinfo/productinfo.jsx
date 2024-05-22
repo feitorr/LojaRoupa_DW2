@@ -9,6 +9,7 @@ const supabaseKey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlbHdoeGdod29scnBtcmtlZXV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTMxNzYwOTQsImV4cCI6MjAyODc1MjA5NH0.4Uvxw93JsGUMigcWASudRAebz4C9WmNdiF8yCCqRkFI";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
+var id;
 var tamanhosGlobal;
 var corGlobal;
 
@@ -44,16 +45,17 @@ class ProductInfo extends React.Component {
 
   async fetchData() {
     try {
+      window.scrollTo(0, 0);
       var url = window.location.href;
       var regex = /[?&]id=(\d+)/i;
       var match = regex.exec(url);
-
+      id = match[1];
       if (match) {
         var productId = match[1];
       }
       const { data, error } = await supabase
         .from("roupa")
-        .select("titulo, preco,promocao,imagem, tamanho, cores")
+        .select("titulo, preco,promocao,imagem, tamanho, cores, estado")
         .eq("id", productId)
         .single();
 
@@ -66,10 +68,12 @@ class ProductInfo extends React.Component {
             preco: data.preco,
             promocao: data.promocao,
             imagem: data.imagem,
+            estado: data.estado,
+          }, () => {
+            this.verificarPromocao();
           });
           this.updateTamanhos(data.tamanho);
           this.updateCores(data.cores);
-          this.verificarPromocao();
         } else {
           console.error("Nenhum dado encontrado.");
         }
@@ -144,6 +148,7 @@ class ProductInfo extends React.Component {
   addToBag = () => {
     if (tamanhosGlobal && corGlobal) {
       const item = {
+        id: id,
         nome: this.state.titulo,
         image: this.state.imagem,
         price: this.state.preco,
@@ -172,20 +177,21 @@ class ProductInfo extends React.Component {
   };
 
   verificarPromocao = () => {
-    console.log("oi");
-    var promocao = document.getElementById("saldo");
-    if (this.state.promocao != null) {
-      promocao.style.display = "block";
+    const saldoElement = document.getElementById("saldo");
+
+    if (this.state.promocao === null) {
+      saldoElement.style.display = "none";
     } else {
-      promocao.style.display = "none";
+      saldoElement.style.display = "block";
     }
   };
 
+  
   render() {
     const { tamanhos, cores } = this.state;
-
+    const isOutOfStock = this.state.estado === 0;
     return (
-      <div className="product">
+      <div className={`product ${isOutOfStock ? 'esgotado' : ''}`}>
         <div className="productimg">
           <img
             src={`https://lelwhxghwolrpmrkeeuw.supabase.co/storage/v1/object/public/imagens/${this.state.imagem}`}
@@ -222,9 +228,8 @@ class ProductInfo extends React.Component {
           <div className="cores">
             {cores.map((cor, index) => (
               <li
-                className={`cor ${cor.split(" ")[0]} ${
-                  cor.includes("colorShow") ? "colorShow" : ""
-                }`}
+                className={`cor ${cor.split(" ")[0]} ${cor.includes("colorShow") ? "colorShow" : ""
+                  }`}
                 id={cor.split(" ")[0]}
                 key={index}
                 style={{
@@ -238,9 +243,16 @@ class ProductInfo extends React.Component {
               ></li>
             ))}
           </div>
-          <div className="button">
-            <h3 onClick={this.addToBag}>adicionar ao carrinho</h3>
+          <div>
+          <div
+            className={`button ${isOutOfStock ? 'out-of-stock' : ''}`}
+            onClick={isOutOfStock ? null : this.addToBag}
+          >
+            <h3>
+              {isOutOfStock ? 'Esgotado' : 'adicionar ao carrinho'}
+            </h3>
           </div>
+        </div>
 
           <div className="entregas">
             <img src={shop} alt="Icone de loja"></img>

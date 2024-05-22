@@ -16,6 +16,7 @@ const Pagina_roupa = () => {
         <Roupa_filtrada/>
         </div>
         </div>
+        <Footer />
     </>
   );
 };

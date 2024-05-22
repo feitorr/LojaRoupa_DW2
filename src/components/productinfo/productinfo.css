@@ -8,6 +8,7 @@
   cursor: pointer;
   transition: all 0.3s;
 }
+
 .selected {
   background-color: #000;
   color: white !important;
@@ -127,6 +128,10 @@
   background-color: #ffff00;
 }
 
+.esgotado{
+  filter: grayscale(1);
+}
+
 .button {
   color: #ffffff;
   background-color: #000;
@@ -136,9 +141,16 @@
   cursor: pointer;
   transition: all 0.2s;
 }
+.button.out-of-stock {
+  background-color: grey;
+}
+.button.out-of-stock:hover {
+  cursor: not-allowed;
+  background-color: grey;
+}
 .button:hover {
   transition: all 0.2s;
-  color: #000000;
+  color: #ffffff;
   background-color: #dadada;
 }
 .button h3 {
@@ -215,17 +227,24 @@ height: 500px;
     margin: 0 auto;
    }
    .button h3 {
-    padding: 10px;
+    padding: 25px;
     font-size: 20px;
   }
    .productimg img{
     object-fit: contain;
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
-    height: 600px;
+    height: auto;
    }
    .entregas{
     margin-top: 20px;
    }
+}
+@media screen and (max-width: 600px) {
+  .cores{
+    justify-content: space-around;
+    width: 100%;
+    max-width: 100%;
+}
 }
 

@@ -81,7 +81,7 @@ const Vendidos = () => {
                   </td>
                   <td>{item.marca}</td>
                   <td>{item.genero}</td>
-                  <td>{item.preco}</td>
+                  <td>{parseFloat(item.preco).toFixed(2)}€</td>
                   <td>{item.titulo}</td>
                 </tr>
               ))}

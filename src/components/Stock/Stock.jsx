@@ -58,7 +58,6 @@ const Stock = () => {
 
   const addItem = async () => {
     try {
-      // Exibir mensagem de carregamento
       swal({
         title: "Aguarde...",
         text: "Adicionando item...",
@@ -67,18 +66,13 @@ const Stock = () => {
         closeOnClickOutside: false,
         closeOnEsc: false,
       });
-
-      // Renomear o nome do arquivo
       let fileName = sanitizeFileName(file.name);
       const { data: existingFiles, error: fileError } = await supabase.storage
         .from("imagens")
         .list();
-
       if (fileError) {
-        throw fileError; // Lançar erro se houver problema ao listar arquivos
+        throw fileError;
       }
-
-      // Verificar se o nome do arquivo já existe
       let count = 1;
       let originalFileName = fileName;
       while (existingFiles.some((f) => f.name === fileName)) {
@@ -472,7 +466,7 @@ const addPromo = async (id) => {
                     <td>{item.genero}</td>
                     <td>{item.cores}</td>
                     <td>{item.tamanho}</td>
-                    <td>{parseFloat(item.preco).toFixed(2)}</td>
+                    <td>{parseFloat(item.preco).toFixed(2)}€</td>
                     <td>{item.titulo}</td>
                     <td>
                       <button onClick={() => editt(item)}>
