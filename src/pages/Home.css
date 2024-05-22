@@ -60,6 +60,14 @@
     transition: all 0.3s;
 }
 @media screen and (max-width: 885px) {
+    .homem:hover{
+        transition: all 0.3s;
+        transform: scale(1);
+    }
+    .mulher:hover{
+        transition: all 0.3s;
+        transform: scale(1);
+    }
     .tipo{
         padding: 5px;
         font-size: 5vw;
