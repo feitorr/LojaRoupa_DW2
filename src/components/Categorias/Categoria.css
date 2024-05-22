@@ -93,6 +93,9 @@
 }
 }
 @media screen and (max-width: 470px) {
+    .categoria:hover{
+        transform: scale(1);
+    }
     .flex{
         justify-content: center;
         margin: 0 auto;
@@ -101,6 +104,7 @@
         padding-bottom: 50px;
     }
     .categoria{
+         background-color: rgb(255, 255, 255);
         margin: 0px;
         width: 90%;
     }
