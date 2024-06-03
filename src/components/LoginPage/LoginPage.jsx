@@ -3,6 +3,24 @@ import googleLogo from "../../images/google.png";
 import faceLogo from "../../images/facebook.png";
 import instaLogo from "../../images//instagram.png";  
 
+const loginForm = document.getElementById("login-form");
+const loginButton = document.getElementById("login-form-submit");
+const loginErrorMsg = document.getElementById("login-error-msg");
+
+loginButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    const username = loginForm.username.value;
+    const password = loginForm.password.value;
+
+    if (username === "user" && password === "web_dev") {
+        alert("You have successfully logged in.");
+          location.reload();
+    } else {
+        loginErrorMsg.style.opacity = 1;
+    }
+})
+
+
 const LoginPage = () => {
   return (
     <div className="form">
@@ -37,7 +55,7 @@ const LoginPage = () => {
           <p className="inicialsec">Esqueceu-se da palavra-passe?</p>
         </div>
         <div className="Submit">
-          <button type="submit">Iniciar Sessão</button>
+          <button type="submit" id="login-form-submit">Iniciar Sessão</button>
         </div>
 
         <div className="Registo">
