@@ -64,6 +64,7 @@ background-color: #dadada;
 
 .header-button svg {
   font-size: 45px;
+  color: #000;
 }
 
 .headerDivisiveLine {
@@ -72,3 +73,4 @@ background-color: #dadada;
   background-color: #000;
   margin-top: 15px;
 }
+
