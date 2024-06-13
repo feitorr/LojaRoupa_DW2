@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
-import { createClient } from "@supabase/supabase-js";
 import { Link } from "react-router-dom";
 import "../New_collection/New_collection.css";
+import supabase from "../supabase/supabase";
 
-const supabaseUrl = "https://lelwhxghwolrpmrkeeuw.supabase.co";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlbHdoeGdod29scnBtcmtlZXV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTMxNzYwOTQsImV4cCI6MjAyODc1MjA5NH0.4Uvxw93JsGUMigcWASudRAebz4C9WmNdiF8yCCqRkFI";
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 const New_collection_homem = () => {
     const [roupas, setRoupas] = useState([]);
