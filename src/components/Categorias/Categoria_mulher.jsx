@@ -15,49 +15,49 @@ const Categoria_mulher = () => {
             <h1>CATEGORIAS</h1>
             <div className="flexx">
                 <div className="categoriaa">
-                    <Link class="link" to="/roupa">
+                <Link  class="link"to={`/roupa?categoria=${"T-shirt"}?genero=${"Mulher"}`}>
                         <img src={tshirt_mulher} />
                         <p>T-Shirt</p>
                     </Link>
                 </div>
                 <div className="categoriaa">
-                    <Link class="link" to="/roupa">
+                <Link  class="link"to={`/roupa?categoria=${"Sweats"}?genero=${"Mulher"}`}>
                         <img src={sweat_mulher} />
                         <p>Sweats</p>
                     </Link>
                 </div>
                 <div className="categoriaa">
-                    <Link class="link" to="/roupa">
+                <Link  class="link"to={`/roupa?categoria=${"Casacos"}?genero=${"Mulher"}`}>
                         <img src={casao_mulher} />
                         <p>Jackets</p>
                     </Link>
                 </div>
                 <div className="categoriaa">
-                    <Link class="link" to="/roupa">
+                <Link  class="link"to={`/roupa?categoria=${"Jeans "}?genero=${"Mulher"}`}>
                         <img className="jeans" src={jeans} />
                         <p>Jeans</p>
                     </Link>
                 </div>
                 <div className="categoriaa">
-                    <Link class="link" to="/roupa">
+                <Link  class="link"to={`/roupa?categoria=${"Chapeus"}?genero=${"Mulher"}`}>
                         <img src={chapeu} />
                         <p>Hats</p>
                     </Link>
                 </div>
                 <div className="categoriaa">
-                    <Link class="link" to="/roupa">
+                <Link  class="link"to={`/roupa?categoria=${"Vestidos"}?genero=${"Mulher"}`}>
                         <img src={vestido} />
                         <p>Dresses</p>
                     </Link>
                 </div>
                 <div className="categoriaa">
-                    <Link class="link" to="/roupa">
+                <Link  class="link"to={`/roupa?categoria=${"Tops"}?genero=${"Mulher"}`}>
                         <img src={tops} />
                         <p>Tops</p>
                     </Link>
                 </div>
                 <div className="categoriaa">
-                    <Link class="link" to="/roupa">
+                <Link  class="link"to={`/roupa?categoria=${"Saias"}?genero=${"Mulher"}`}>
                         <img src={sais} />
                         <p>Skirt</p>
                     </Link>
