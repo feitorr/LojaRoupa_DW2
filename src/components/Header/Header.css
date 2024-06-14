@@ -73,4 +73,15 @@ background-color: #dadada;
   background-color: #000;
   margin-top: 15px;
 }
-
+@media screen and (max-width: 800px) {
+ .header-buttons{
+  position: absolute;
+  right: 10px;
+ }
+ #paratirar{
+  display: none;
+ }
+ .header-title{
+  margin-right: 0;
+ }
+}

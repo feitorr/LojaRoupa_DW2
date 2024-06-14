@@ -83,7 +83,7 @@ const Header = ({ onFinalizarCompra }) => {
           >
             <ShoppingCartIcon fontSize="large" />
           </IconButton>
-          <IconButton color="inherit" className="header-button">
+          <IconButton id="paratirar" color="inherit" className="header-button">
             <Link to="/login">
               <PersonIcon />
             </Link>
