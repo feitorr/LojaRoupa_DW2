@@ -103,11 +103,13 @@
             padding-bottom: 50px;
         }
         .categoriaa{
+            display: none;
             background-color: rgb(255, 255, 255);
             margin: 0px;
             width: 90%;
         }
         .containerr_cm h1{
+            display: none;
             top: 30px;
             font-size: 30px;
         }

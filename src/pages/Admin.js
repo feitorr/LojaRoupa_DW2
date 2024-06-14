@@ -5,6 +5,11 @@ const Admin = () => {
  <div style={{ display: "flex"}} >
     <Sidebar_admin />
     </div>
+    <div className="header-titleadm">
+            <span className="header-rizz">RIZZ</span>
+            <span className="header-land">LAND</span>
+        </div>
+        <em>Desktop only!</em>
     <P_graficos/>
         </>
       );
