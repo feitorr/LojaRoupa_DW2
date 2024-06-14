@@ -100,7 +100,31 @@ h1 {
   display: flex;
   justify-content: space-between;
 }
-
+.header-titleadm{
+  display: none;
+}
 .lembrar label {
   font-size: 12px;
+}
+em{
+  display: none;
+}
+@media screen and (max-width: 470px) {
+  .graf{
+    display: none;
+  }
+  .header-titleadm{
+    display: block;
+    text-align: center;
+  }
+  em{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .container_admin{
+    display: none;
+  }
 }
